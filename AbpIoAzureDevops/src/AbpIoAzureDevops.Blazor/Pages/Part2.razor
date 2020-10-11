@@ -1,0 +1,40 @@
+@page "/part2"
+
+<PartTemplate Title="@Constants.Part2.Title" Href="@Constants.Part2.Href" PageIdentifier="@Constants.Part2.PageIdentifier" >
+    <Part>
+      <p>1. Check your dotnet version. Should be at least 3.1.x</p>
+      <pre><code class="language-html">dotnet --version</code></pre>
+      <p>2. Install or update first the ABP CLI using a command line window</p>
+      <pre><code class="language-html">dotnet tool install -g Volo.Abp.Cli || dotnet tool update -g Volo.Abp.Cli</code></pre>
+      <p>3. Open a comman prompt in the git repo folder and create a new abp Blazor solution with the command below</p>
+      <pre><code class="language-html">abp new YourAppName -u blazor</code></pre>
+      <p>4. Open a command prompt in the YourAppName.DbMigrator project and enter the command below to apply the database migrations</p>
+      <pre><code class="language-html">dotnet run</code></pre>
+      <Figure Size="FigureSize.None">
+        <FigureImage Source="images/apply_database_migrations.jpg" />
+      </Figure>
+      <p>5. Open a command prompt in the YourAppName.HttpApi.Host project to run the API project.</p>
+      <pre><code class="language-html">dotnet run</code></pre>
+      <p>Navigate to the applicationUrl specified in the launchSettings.json file of the YourAppName.HttpApi.Host project. You should get the Swagger window</p>
+      <Figure Size="FigureSize.None">
+          <FigureImage Source="images/swagger_running.jpg" />
+      </Figure>
+      <p>6. Open a command prompt in the YourAppName.Blazor folder and enter command below to run the Blazor project</p>
+      <pre><code class="language-html">dotnet run</code></pre>
+       <p>Navigate to the applicationUrl specified in the launchSettings.json file of the YourAppName.Blazor project. You should get Welcome window</p>
+      <Figure Size="FigureSize.None">
+          <FigureImage Source="images/welcome_page.jpg" />
+      </Figure>
+
+      <p>7. Add all your changes to the git repo</p>
+      <pre><code class="language-html">git add .</code></pre>
+
+      <p>8. Commit your changes</p>
+      <pre><code class="language-html">git commit -m initialcommit</code></pre>
+
+      <p>7. Push everything to the GitHub repo in the cloud</p>
+      <pre><code class="language-html">git push</code></pre>
+
+
+    </Part>
+</PartTemplate>
