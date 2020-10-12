@@ -45,7 +45,7 @@
       <p>23. Check if [YourAppName].HttpApi.Host files have been deployed</p>
       <pre><code class="language-html">dir</code></pre>
       <p>24. Check the dotnet version of your Azure Web App</p>
-      <pre><code class="language-html">dir</code></pre>
+      <pre><code class="language-html">dotnet --version</code></pre>
       <Figure Size="FigureSize.None">
         <FigureImage Source="images/kudu_debug_console_check_dotnet_version.jpg" />
         <FigureCaption>HTTP Error 500.30 - ANCM In-Process Start Failure</FigureCaption>
@@ -90,7 +90,28 @@
       <pre><code class="language-html">git commit -m OutOfProcess</code></pre>
       <pre><code class="language-html">git push</code></pre>
 
-      <p>36. Wait until the new Build and new Release have been finished and repeat step 31</p>
+      <p>36. Wait until the new Build and new Release have been finished</p>
+      <p>37. Navigate to the URL of the Web App. You should see the same error as in 31</p>
+
+       <p>38. Open Debug Console in the Kudu window [YourAppNameapi.scm.azurewebsites.net]</p>
+      <pre><code class="language-html">https://[YourAppName]api.scm.azurewebsites.net</code></pre>
+
+      <p>39. Entering the command below in the wwwroot folder of the Debug Console. Now you should see an error description</p>
+      <pre><code class="language-html">dotnet [YourAppName].HttpApi.Host.dll</code></pre>
+      <Figure Size="FigureSize.None">
+        <FigureImage Source="images/could_not_find_file_tempkey.rsa.jpg" />
+        <FigureCaption>System.IO.FileNotFoundException: Could not find file 'D:\home\site\wwwroot\tempkey.rsa</FigureCaption>
+      </Figure>
+
+      <p>40. Add the section below to the [YourAppName].HttpApi.Host.proj file</p>
+<pre><code class="languag-html">
+  &lt;ItemGroup&gt
+    &lt;None Update="tempkey.rsa"&gt
+      &lt;CopyToOutputDirectory&gtPreserveNewest&lt;/CopyToOutputDirectory&gt
+    &lt;/None&gt
+  &lt;/ItemGroup&gt
+</code></pre>
+
 
 
 
