@@ -1,0 +1,54 @@
+@page "/part6"
+
+<PartTemplate Title="@Constants.Part6.Title" PrevHref="@Constants.Part6.PrevHref" Href="@Constants.Part6.Href" NextHref="@Constants.Part6.NextHref" PageIdentifier="@Constants.Part6.PageIdentifier" >
+    <Part>
+      <p>1. Sign in into <a href="https://azure.microsoft.com/en-us/services/devops/" target="_blank"> Azure DevOps</a></p>
+      <p>2. Click on [YourAppName]Proj and click on Releases in the Pipelines menu</p>
+      <p>3. Click on the <em>New pipeline</em> button in the <b>No release pipelines found</b> window</p>
+      <p>4. Select <em>Azure App Service deployment</em> and click the <b>Apply</b> button </p>
+      <p>5. Click + Add an artifact in the Pipeline Tab</p>
+      <p>6. Select the Build icon as Source type in the Add an artifact window</p>
+      <p>7. Select Build pipeline in the Source (build pipeline) dropdown and click the Add button</p>
+      <p>8. Click on the Continuous deployment trigger (thunderbolt icon)</p>
+      <p>9. Set the toggle to Enabled in the the Continous deployment trigger window. Close the window </p>
+      <p>10. Enter ApiDeployment in Stage name input field. Close the Stage window</p>
+      <p>11. Click on the little red circle with the exclamation mark in the Tasks menu</p>
+      <p>12. Select your subscription in the Azure subscription dropdown. </p>
+      <p>13. Click Authorize and enter your credentials in the next screens</p>
+      <p>14. After the Authorisation, select the [YourAppName]API in the App service name dropdown</p>
+      <p>15. Click on the Deploy Azure App Service task</p>
+      <p>16. Select [YourAppName].HttpApi.Host.zip in the Package or folder input field</p>
+     <Figure Size="FigureSize.None">
+        <FigureImage Source="images/select_api_zip_in_drop_folder.jpg" />
+        <FigureCaption>Select [YourAppName].HttpApi.Host.zip in drop folder</FigureCaption>
+      </Figure>
+      <p>17. Click on the Save icon in the top menu. Click OK</p>
+      <p>18. Click Create release in the top menu. click Create </p>
+       <Figure Size="FigureSize.None">
+        <FigureImage Source="images/release_apideployment_succeeded.jpg" />
+        <FigureCaption>Select [YourAppName].HttpApi.Host.zip in drop folder</FigureCaption>
+      </Figure>
+      <p>19. Open a browser and navigate to the URL of your Web App</p>
+      <pre><code class="language-html">https://[YourAppName]api.azurewebsites.net</code></pre>
+      <p>20. It's possible that you receive the error below</p>
+      <Figure Size="FigureSize.None">
+        <FigureImage Source="images/HTTP_Error_500.30_ANCM_In_Process_Start_Failure.jpg" />
+        <FigureCaption>HTTP Error 500.30 - ANCM In-Process Start Failure</FigureCaption>
+      </Figure>
+      <p>21. Open Debug Console in the Kudu window [YourAppNameapi.scm.azurewebsites.net]</p>
+      <pre><code class="language-html">https://[YourAppName]api.scm.azurewebsites.net</code></pre>
+      <p>22. Check if [YourAppName].HttpApi.Host files have been deployed</p>
+      <pre><code class="language-html">dir</code></pre>
+      <p>23. Check the dotnet version of your Azure Web App</p>
+      <pre><code class="language-html">dir</code></pre>
+      <Figure Size="FigureSize.None">
+        <FigureImage Source="images/kudu_debug_console_check_dotnet_version.jpg" />
+        <FigureCaption>HTTP Error 500.30 - ANCM In-Process Start Failure</FigureCaption>
+      </Figure>
+      <p>24. Add &lt;<AspNetCoreHostingModel>OutOfProcess</AspNetCoreHostingModel>&gt; to the [YourAppName].HttpApi.Host.csproj file</p>
+          <Figure Size="FigureSize.None">
+        <FigureImage Source="images/add_AspNetCoreHostingModel_OutOfProcess_csproj.jpg" />
+        <FigureCaption>HTTP Error 500.30 - ANCM In-Process Start Failure</FigureCaption>
+      </Figure>
+    </Part>
+</PartTemplate>

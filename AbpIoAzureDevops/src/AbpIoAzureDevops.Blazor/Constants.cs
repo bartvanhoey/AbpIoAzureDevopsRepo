@@ -31,11 +31,30 @@ namespace AbpIoAzureDevops.Blazor
 
     public static class Part4
     {
-      public const string Title = "Part 4: Setup a Build pipeline for your project in AzureDevops";
+      public const string Title = "Part 4: Setup the Build pipeline in AzureDevops and publish the Build Artifacts";
       public const string Href = "part4";
       public const string PageIdentifier = "4";
       public const string PrevHref = "part3";
       public const string NextHref = "part5";
     }
+
+    public static class Part5
+    {
+      public const string Title = "Part 5: Create a Web App in the Azure Portal to deploy [YourAppName].HttpApi.Host project";
+      public const string Href = "part5";
+      public const string PageIdentifier = "5";
+      public const string PrevHref = "part4";
+      public const string NextHref = "part6";
+    }
+
+    public static class Part6
+    {
+      public const string Title = "Part 6: Create a Release pipeline in the AzureDevops and deploy [YourAppName].HttpApi.Host project";
+      public const string Href = "part6";
+      public const string PageIdentifier = "6";
+      public const string PrevHref = "part5";
+      public const string NextHref = "part7";
+    }
+
   }
 }
