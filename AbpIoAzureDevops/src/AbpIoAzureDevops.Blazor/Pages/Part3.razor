@@ -1,0 +1,36 @@
+@page "/part3"
+
+<PartTemplate Title="@Constants.Part3.Title" PrevHref="@Constants.Part3.PrevHref" Href="@Constants.Part3.Href" NextHref="@Constants.Part3.NextHref" PageIdentifier="@Constants.Part3.PageIdentifier" >
+    <Part>
+        <p>1. Login into <a href="https://portal.azure.com/" target="_blank"> the Azure Portal</a></p>
+        <p>2. Click on Create a resouce</p>
+        <p>3. Search for SQL Database</p>
+        <p>4. Click the Create button in the SQL Database window </p>
+        <p>5. Create a new resource group. Name it rg[YourAppName] </p>
+        <p>6. Enter [YourAppName]Db as database name </p>
+        <p>7. Create a new Server and name it [yourappname]server </p>
+        <p>8. Enter a serveradmin login and passwords. Click OK</p>
+        <p>9. Select your Location</p>
+        <p>10. Check Allow Azure services to access server</p>
+        <p>11. Click on Configure database. Go for the Basic version and click the Apply button</p>
+        <p>12. Click on the Review + create button. Click Create</p>
+        <p>13. Click on Go to resource when the SQL Database is created</p>
+        <p>14. Click Set server firewall menu item</p>
+        <p>15. Click on Add Client IP menu item and click on the Save button</p>
+        <p>16. Close the Firewall settings window</p>
+        <p>17. Click on Show database connection strings and copy the connection string</p>
+        <p>18. Replace the Default connection string in the appsettings.json files of the [YourAppName].HttpApi.Host and the YourAppName.DbMigrator project</p>
+        <p>19. Do not forget to replace {your_password} with the previously entered password</p>
+        <p>20. Open a command prompt in the YourAppName.DbMigrator and run the project to apply the database migrations to your SQL Database in azure</p>
+        <pre><code class="language-html">dotnet run</code></pre>
+        <p>21. Run both the [YourAppName].HttpApi.Host and [YourAppName].Blazor project to see if everything is working</p>
+        <p>22. stop both the [YourAppName].HttpApi.Host and [YourAppName].Blazor project</p>
+        <p>23. Open a command prompt in the root folder of your project and add all your changes to the git repo</p>
+        <pre><code class="language-html">git add .</code></pre>
+        <p>24. Commit your changes</p>
+        <pre><code class="language-html">git commit -m initialcommit</code></pre>
+        <p>25. Push everything to the GitHub repo in the cloud</p>
+        <pre><code class="language-html">git push</code></pre>
+
+    </Part>
+</PartTemplate>

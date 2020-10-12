@@ -8,6 +8,39 @@
       @Part
 </div>
 <br>
-<hr>
+<Pagination>
+    @if (@PreviousPage != -1)
+    {
+        <PaginationItem>
+            <PaginationLink @onclick="@(() => NavigateToPage(PrevHref))">
+                <span aria-hidden="true">«</span>
+            </PaginationLink>
+        </PaginationItem>
+        <PaginationItem>
+            <PaginationLink @onclick="@(() => NavigateToPage(PrevHref))">
+                @PreviousPage
+            </PaginationLink>
+        </PaginationItem>    
+    }
+    <PaginationItem Active="true">
+        <PaginationLink @onclick="@(() => NavigateToPage(Href))">
+            @CurrentPage
+        </PaginationLink>
+    </PaginationItem>
+    @if (@CurrentPage != -1)
+    {
+        <PaginationItem>
+            <PaginationLink @onclick="@(() => NavigateToPage(NextHref))" >
+                @NextPage
+            </PaginationLink>
+        </PaginationItem>
+        <PaginationItem>
+            <PaginationLink @onclick="@(() => NavigateToPage(NextHref))" >
+                <span aria-hidden="true">»</span>
+            </PaginationLink>
+        </PaginationItem>
+    }
+</Pagination>
+
 <br>
 @* <Disqus UrlPart="@Href" PageIdentifier="@PageIdentifier"></Disqus> *@
