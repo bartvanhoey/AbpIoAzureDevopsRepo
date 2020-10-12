@@ -51,7 +51,7 @@
         <FigureCaption>HTTP Error 500.30 - ANCM In-Process Start Failure</FigureCaption>
       </Figure>
       <p>25. Add &lt;AspNetCoreHostingModel&gtOutOfProcess&lt;/AspNetCoreHostingModel&gt; to the [YourAppName].HttpApi.Host.csproj file</p>
-          <Figure Size="FigureSize.None">
+      <Figure Size="FigureSize.None">
         <FigureImage Source="images/add_AspNetCoreHostingModel_OutOfProcess_csproj.jpg" />
         <FigureCaption>Add &lt;AspNetCoreHostingModel&gtOutOfProcess&lt;/AspNetCoreHostingModel&gt to the [YourAppName].HttpApi.Host.csproj file</FigureCaption>
       </Figure>
@@ -65,8 +65,35 @@
       <pre><code class="language-html">git push</code></pre>
 
       <p>29. As Continous Integration is enabled in the Build pipeline, this should trigger a new Build</p>
-
       <p>30. When the Build has succeeded, a new Release should be triggered</p>
+
+      <p>31. Navigate to the URL of the Web App. It's possible you see the error below</p>
+      <Figure Size="FigureSize.None">
+        <FigureImage Source="images/an_error_when_starting_the_application.jpg" />
+        <FigureCaption>An error occurred while starting the application.</FigureCaption>
+      </Figure>
+
+      <p>32. Open Debug Console in the Kudu window [YourAppNameapi.scm.azurewebsites.net]</p>
+      <pre><code class="language-html">https://[YourAppName]api.scm.azurewebsites.net</code></pre>
+
+      <p>33. Try to invoke an error description by entering following command in the wwwroot folder of the Debug Console</p>
+      <pre><code class="language-html">dotnet [YourAppName].HttpApi.Host.dll</code></pre>
+
+      <p>34. If you receive no Error description. Go to Program.cs from the [YourAppName].HttpApi.Host project and comment out the if debug statements</p>
+      <Figure Size="FigureSize.None">
+        <FigureImage Source="images/comment_out_if_debug_statements_in_ProgramCs.jpg" />
+        <FigureCaption>An error occurred while starting the application.</FigureCaption>
+      </Figure>
+
+      <p>35. Add, Commit and Push all your changes to your GitHub repo</p>
+      <pre><code class="language-html">git add .</code></pre>
+      <pre><code class="language-html">git commit -m OutOfProcess</code></pre>
+      <pre><code class="language-html">git push</code></pre>
+
+      <p>36. Wait until the new Build and new Release have been finished and repeat step 31</p>
+
+
+
 
     </Part>
 </PartTemplate>
