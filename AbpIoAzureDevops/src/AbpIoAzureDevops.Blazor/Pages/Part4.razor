@@ -1,0 +1,63 @@
+@page "/part4"
+
+<PartTemplate Title="@Constants.Part4.Title" PrevHref="@Constants.Part4.PrevHref" Href="@Constants.Part4.Href" NextHref="@Constants.Part4.NextHref" PageIdentifier="@Constants.Part4.PageIdentifier" >
+    <Part>
+        <p>1. Sign in into <a href="https://azure.microsoft.com/en-us/services/devops/" target="_blank"> Azure DevOps</a></p>
+        <p>2. Click on New organization and follow the steps to create a new Organisation. Name it [YourAppName]org</p>
+        <p>3. Enter [YourAppName]Proj as project name in the Create a project to get started window</p>
+        <p>4. Select Public visibility and click the Create project button</p>
+        <p>5. Click on the Pipelines button to continue</p>
+        <p>6. Click on the Create Pipelines button</p>
+        <p>7. Click on Use the classic editor to create a pipeline without YAML in the Where is your code window</p>
+        <p>8. Select GitHub in the Select your repository window</p>
+        <p>9. Enter a Connection name. [YourAppName]GitHubConnection and click on Authorize using OAuth</p>
+        <p>10. Select your GitHub [YourAppName]repo and click Continue</p>
+        <p>11. Search for ASP.NET Core in the Select a template window</p>
+        <p>12. Select ASP.NET Core and click the Apply button</p>
+        <p>13. Enter a name for the pipeline and select vs2017-win2016 in Agent Specification </p>
+        <Figure Size="FigureSize.None">
+          <FigureImage Source="images/buildpipeline_step1.jpg" />
+        </Figure>
+        <p>14. Click on the plus sign to Add a task to Agent job 1</p>
+        <p>15. Search for Use .NET Core sdk. Click on the Add button and move it to the first place</p>
+        <p>16. Enter 3.1.x int Version input field</p>
+        <p>17. Leave all the default settings for the other tasks in the pipeline</p>
+        <p>18. Click on Save & queue in the top menu. And click Save an run to run the Build pipeline</p>
+        <p>19. When the Build pipeline has finished. Click on 1 published; 1 consumed</p>
+        <Figure Size="FigureSize.None">
+          <FigureImage Source="images/buildpipeline_finished.jpg" />
+          <FigureCaption>Build pipeline finished</FigureCaption>
+        </Figure>
+        <p>20. In the drop folder you should now have 2 zip Artifacts </p>
+        <br>
+        <br>
+        <hr>
+        <Figure Size="FigureSize.None">
+          <FigureImage Source="images/buildpipeline_step2_use_netcore.jpg" />
+          <FigureCaption>Use .NET Core task</FigureCaption>
+        </Figure>
+        <Figure Size="FigureSize.None">
+          <FigureImage Source="images/buildpipeline_step3_restore.jpg" />
+          <FigureCaption>Restore task</FigureCaption>
+        </Figure>
+        <Figure Size="FigureSize.None">
+          <FigureImage Source="images/buildpipeline_step4_build.jpg" />
+          <FigureCaption>Build task</FigureCaption>
+        </Figure>
+        <Figure Size="FigureSize.None">
+          <FigureImage Source="images/buildpipeline_step5_test.jpg" />
+          <FigureCaption>Test task</FigureCaption>
+        </Figure>
+        <Figure Size="FigureSize.None">
+          <FigureImage Source="images/buildpipeline_step6_publish.jpg" />
+          <FigureCaption>Publish task</FigureCaption>
+        </Figure>
+        <Figure Size="FigureSize.None">
+          <FigureImage Source="images/buildpipeline_step7_publish_artifact.jpg" />
+          <FigureCaption>Publish Artifact task</FigureCaption>
+        </Figure>
+
+
+
+    </Part>
+</PartTemplate>

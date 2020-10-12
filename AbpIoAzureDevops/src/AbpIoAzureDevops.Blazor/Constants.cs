@@ -19,14 +19,23 @@ namespace AbpIoAzureDevops.Blazor
       public const string PrevHref = "part1";
       public const string NextHref = "part3";
     }
-    
+
     public static class Part3
     {
-      public const string Title = "Part 3: Create an SQL Database on Azure and change ConnectionString in appsettings.json file";
+      public const string Title = "Part 3: Create an SQL Database on Azure and change connection string in appsettings.json files";
       public const string Href = "part3";
       public const string PageIdentifier = "3";
       public const string PrevHref = "part2";
       public const string NextHref = "part4";
+    }
+
+    public static class Part4
+    {
+      public const string Title = "Part 4: Setup a Build pipeline for your project in AzureDevops";
+      public const string Href = "part4";
+      public const string PageIdentifier = "4";
+      public const string PrevHref = "part3";
+      public const string NextHref = "part5";
     }
   }
 }
