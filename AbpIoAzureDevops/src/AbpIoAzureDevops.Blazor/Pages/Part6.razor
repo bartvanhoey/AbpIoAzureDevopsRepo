@@ -73,7 +73,7 @@
         <FigureCaption>An error occurred while starting the application.</FigureCaption>
       </Figure>
 
-      <p>32. Open Debug Console in the Kudu window [YourAppNameapi.scm.azurewebsites.net]</p>
+      <p>32. Open the Debug Console in the Kudu window [YourAppNameapi.scm.azurewebsites.net]</p>
       <pre><code class="language-html">https://[YourAppName]api.scm.azurewebsites.net</code></pre>
 
       <p>33. Try to invoke an error description by entering following command in the wwwroot folder of the Debug Console</p>
@@ -93,10 +93,10 @@
       <p>36. Wait until the new Build and new Release have been finished</p>
       <p>37. Navigate to the URL of the Web App. You should see the same error as in 31</p>
 
-       <p>38. Open Debug Console in the Kudu window [YourAppNameapi.scm.azurewebsites.net]</p>
+       <p>38. Open the Debug Console in the Kudu window [YourAppNameapi.scm.azurewebsites.net]</p>
       <pre><code class="language-html">https://[YourAppName]api.scm.azurewebsites.net</code></pre>
 
-      <p>39. Entering the command below in the wwwroot folder of the Debug Console. Now you should see an error description</p>
+      <p>39. Enter the command below in the wwwroot folder of the Debug Console. Now you should see an error description</p>
       <pre><code class="language-html">dotnet [YourAppName].HttpApi.Host.dll</code></pre>
       <Figure Size="FigureSize.None">
         <FigureImage Source="images/could_not_find_file_tempkey.rsa.jpg" />
@@ -112,6 +112,34 @@
   &lt;/ItemGroup&gt
 </code></pre>
 
+      <p>41. Add, Commit and Push all your changes to your GitHub repo</p>
+      <pre><code class="language-html">git add .</code></pre>
+      <pre><code class="language-html">git commit -m OutOfProcess</code></pre>
+      <pre><code class="language-html">git push</code></pre>
+      <p>42. Wait until the new Build and new Release have been finished</p>
+      <p>43. Navigate to the URL of the Web App to see if the error is gone</p>
+      <p>44. It's possible that you get the error This page isn’t working</p>
+
+      <p>45. Open the Debug Console in the Kudu window [YourAppNameapi.scm.azurewebsites.net]</p>
+      <pre><code class="language-html">https://[YourAppName]api.scm.azurewebsites.net</code></pre>
+
+      <p>46. Enter the command below in the wwwroot folder of the Debug Console to get a more specific error description</p>
+      <pre><code class="language-html">dotnet [YourAppName].HttpApi.Host.dll</code></pre>
+      <p>47. Probably you receive the error description below</p>
+      <Figure Size="FigureSize.None">
+        <FigureImage Source="images/client_not_allowed_to_access_server.jpg" />
+        <FigureCaption>Cannot open server 'abpioazuredevopsserver' requested by the login. Client with IP address 'x.x.x.x' is not allowed to access the server.</FigureCaption>
+      </Figure>
+      <p>48. Go to the Azure Portal and select your [YourAppName]server</p>
+      <p>49. Click on the Firewalls and virtual networks menu</p>
+      <p>50. Select Yes in toggle `Allow Azure services and resources to access this server`</p>
+      <p>51. Click the Save button and close window when the Firewall rules have been updated</p>
+      <p>52. Navigate to the URL of the Web App and Refresh the page to see if you still get an error</p>
+      <p>53. If all goes well your [YourAppName].HttpApi.Host project should be up and running</p>
+<Figure Size="FigureSize.None">
+        <FigureImage Source="images/swagger_page_served_by_web_app_on_azure.jpg" />
+        <FigureCaption>Swagger page served by your Web App running on Azure</FigureCaption>
+      </Figure>
 
 
 
