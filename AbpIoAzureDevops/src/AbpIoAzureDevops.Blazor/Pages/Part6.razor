@@ -40,7 +40,7 @@
         <FigureImage Source="images/HTTP_Error_500.30_ANCM_In_Process_Start_Failure.jpg" />
         <FigureCaption>HTTP Error 500.30 - ANCM In-Process Start Failure</FigureCaption>
       </Figure>
-      <p>22. Open Debug Console in the Kudu window [YourAppNameapi.scm.azurewebsites.net]</p>
+      <p>22. Open the Debug Console in the Kudu window by navigating to [YourAppNameapi.<b>scm</b>.azurewebsites.net]</p>
       <pre><code class="language-html">https://[YourAppName]api.scm.azurewebsites.net</code></pre>
       <p>23. Check if [YourAppName].HttpApi.Host files have been deployed</p>
       <pre><code class="language-html">dir</code></pre>
@@ -73,7 +73,7 @@
         <FigureCaption>An error occurred while starting the application.</FigureCaption>
       </Figure>
 
-      <p>32. Open the Debug Console in the Kudu window [YourAppNameapi.scm.azurewebsites.net]</p>
+      <p>32. Open the Debug Console in the Kudu window by navigating to [YourAppNameapi.<b>scm</b>.azurewebsites.net]</p>
       <pre><code class="language-html">https://[YourAppName]api.scm.azurewebsites.net</code></pre>
 
       <p>33. Try to invoke an error description by entering following command in the wwwroot folder of the Debug Console</p>
@@ -93,7 +93,7 @@
       <p>36. Wait until the new Build and new Release have been finished</p>
       <p>37. Navigate to the URL of the Web App. You should see the same error as in 31</p>
 
-       <p>38. Open the Debug Console in the Kudu window [YourAppNameapi.scm.azurewebsites.net]</p>
+       <p>38. Open the Debug Console in the Kudu window by navigating to [YourAppNameapi.<b>scm</b>.azurewebsites.net]</p>
       <pre><code class="language-html">https://[YourAppName]api.scm.azurewebsites.net</code></pre>
 
       <p>39. Enter the command below in the wwwroot folder of the Debug Console. Now you should see an error description</p>
@@ -103,7 +103,7 @@
         <FigureCaption>System.IO.FileNotFoundException: Could not find file 'D:\home\site\wwwroot\tempkey.rsa</FigureCaption>
       </Figure>
 
-      <p>40. Add the section below to the [YourAppName].HttpApi.Host.proj file</p>
+      <p>40. Add the section below to the [YourAppName].HttpApi.Host.proj file to copy the missing tempkey.rsa file to the output directory </p>
 <pre><code class="languag-html">
   &lt;ItemGroup&gt
     &lt;None Update="tempkey.rsa"&gt
@@ -118,9 +118,9 @@
       <pre><code class="language-html">git push</code></pre>
       <p>42. Wait until the new Build and new Release have been finished</p>
       <p>43. Navigate to the URL of the Web App to see if the error is gone</p>
-      <p>44. It's possible that you get the error This page isn’t working</p>
+      <p>44. It's possible that you get another error: This page isn’t working</p>
 
-      <p>45. Open the Debug Console in the Kudu window [YourAppNameapi.scm.azurewebsites.net]</p>
+      <p>45. Open the Debug Console in the Kudu window by navigating to [YourAppNameapi.<b>scm</b>.azurewebsites.net]</p>
       <pre><code class="language-html">https://[YourAppName]api.scm.azurewebsites.net</code></pre>
 
       <p>46. Enter the command below in the wwwroot folder of the Debug Console to get a more specific error description</p>
@@ -133,16 +133,12 @@
       <p>48. Go to the Azure Portal and select your [YourAppName]server</p>
       <p>49. Click on the Firewalls and virtual networks menu</p>
       <p>50. Select Yes in toggle `Allow Azure services and resources to access this server`</p>
-      <p>51. Click the Save button and close window when the Firewall rules have been updated</p>
+      <p>51. Click the Save button and close the window when the Firewall rules have been updated</p>
       <p>52. Navigate to the URL of the Web App and Refresh the page to see if you still get an error</p>
-      <p>53. If all goes well your [YourAppName].HttpApi.Host project should be up and running</p>
-<Figure Size="FigureSize.None">
+      <p>53. If all goes well your [YourAppName].HttpApi.Host project should be up and running. The Swagger page is served by your Web App in Azure</p>
+      <Figure Size="FigureSize.None">
         <FigureImage Source="images/swagger_page_served_by_web_app_on_azure.jpg" />
         <FigureCaption>Swagger page served by your Web App running on Azure</FigureCaption>
       </Figure>
-
-
-
-
     </Part>
 </PartTemplate>
