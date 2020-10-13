@@ -56,5 +56,23 @@ namespace AbpIoAzureDevops.Blazor
       public const string NextHref = "part7";
     }
 
+    public static class Part7
+    {
+      public const string Title = "Part 7: Release pipeline finished, Deployment succeeded, but Web App still not working. How to fix the issues?";
+      public const string Href = "part7";
+      public const string PageIdentifier = "7";
+      public const string PrevHref = "part6";
+      public const string NextHref = "part8";
+    }
+
+    public static class Part8
+    {
+      public const string Title = "Part 8: Create a Web App in the Azure Portal to deploy [YourAppName].Blazor project";
+      public const string Href = "part8";
+      public const string PageIdentifier = "8";
+      public const string PrevHref = "part7";
+      public const string NextHref = "part9";
+    }
+
   }
 }
