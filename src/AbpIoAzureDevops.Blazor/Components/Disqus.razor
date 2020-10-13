@@ -1,0 +1,14 @@
+@using Microsoft.JSInterop
+@inject IJSRuntime JSRuntime
+
+<div id="disqus_thread"></div>
+
+@code {
+    [Parameter] public string UrlPart { get; set; } = "defaultUrlPart";
+    [Parameter] public string PageIdentifier { get; set; } = "defaulPageIdentifier";
+      protected async override Task OnAfterRenderAsync(bool firstRender)
+      {
+          await JSRuntime.InvokeVoidAsync(
+              "disqus.show", "disqus_thread", UrlPart, PageIdentifier);
+      }
+}
