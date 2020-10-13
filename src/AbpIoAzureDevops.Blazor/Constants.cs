@@ -74,5 +74,14 @@ namespace AbpIoAzureDevops.Blazor
       public const string NextHref = "part9";
     }
 
+    public static class Part9
+    {
+      public const string Title = "Part 9: Create extra Task in the Release pipeline in the AzureDevops to deploy [YourAppName].HttpApi.Blazor project";
+      public const string Href = "part9";
+      public const string PageIdentifier = "9";
+      public const string PrevHref = "part8";
+      public const string NextHref = "part10";
+    }
+
   }
 }
