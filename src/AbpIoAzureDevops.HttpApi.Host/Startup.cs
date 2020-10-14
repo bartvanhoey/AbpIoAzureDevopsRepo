@@ -10,6 +10,11 @@ namespace AbpIoAzureDevops
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddApplication<AbpIoAzureDevopsHttpApiHostModule>();
+
+            services.AddAntiforgery(options =>
+            {
+                options.SuppressXFrameOptionsHeader = true;
+            });
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ILoggerFactory loggerFactory)

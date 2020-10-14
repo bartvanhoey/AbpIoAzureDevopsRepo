@@ -32,23 +32,24 @@ NextHref="@Constants.Part10.NextHref" PageIdentifier="@Constants.Part10.PageIden
         git push
       </code></pre>
     <p>6. Pushing changes to your GitHub repository triggers a new Build. When this Build has finished, a new Release should start</p>
-
+    <p>7. After the Release has finished, navigate to the URL of the Blazor Web App. You should see the index page of your Blazor Web App by now. Congratulations, you made it! </p>
+    <p>8. There is still another issue with the Web App. Click on Log in link to navigate to the login page and press F12 to open the Developers Tools in the browser </p>
+    <p>9. You probably receive error `Refused to display ... in a frame because it set 'X-Frame-Options' to 'sameorigin'`</p>
+    <Figure Size="FigureSize.None">
+      <FigureImage Source="images/refused_to_display_in_a_frame_because_it_set_X-Frame_Options_to_sameorigin.jpg" />
+    </Figure>
 
     @* <pre><code class="language-html">https://[YourAppName]api.scm.azurewebsites.net</code></pre>
-      <p>4. Check if [YourAppName].HttpApi.Host files have been deployed</p>
       <pre><code class="language-html">dir</code></pre>
       <p>5. Check the dotnet version of the Azure Web App. Should be 3.1.x</p>
       <pre><code class="language-html">dotnet --version</code></pre>
-      <Figure Size="FigureSize.None">
-      <FigureImage Source="images/kudu_debug_console_check_dotnet_version.jpg" />
-      </Figure>
+    
       <p>6. To solve error <b>HTTP Error 500.30 - ANCM In-Process Start Failure</b> add
       &lt;AspNetCoreHostingModel&gtOutOfProcess&lt;/AspNetCoreHostingModel&gt; to the [YourAppName].HttpApi.Host.csproj
       file</p>
 
 
 
-      <p>10. Navigate to the URL of the Web App after the new Release has finished and the Deployment succeeded. It's
       possible you see the error below</p>
       <Figure Size="FigureSize.None">
       <FigureImage Source="images/an_error_when_starting_the_application.jpg" />
