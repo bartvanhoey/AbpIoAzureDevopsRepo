@@ -1,15 +1,28 @@
-@page "/part7"
+@page "/part10"
 
-<PartTemplate Title="@Constants.Part7.Title" PrevHref="@Constants.Part7.PrevHref" Href="@Constants.Part7.Href" NextHref="@Constants.Part7.NextHref" PageIdentifier="@Constants.Part7.PageIdentifier" >
+<PartTemplate Title="@Constants.Part10.Title" PrevHref="@Constants.Part10.PrevHref" Href="@Constants.Part10.Href" NextHref="@Constants.Part10.NextHref" PageIdentifier="@Constants.Part10.PageIdentifier" >
     <Part>
-      <p>1. When the Release pipeline has finished and the ApiDeployment succeeded, open a browser window and navigate to the URL of your Web App (You can find it in Azure)</p>
-      <pre><code class="language-html">https://[YourAppName]api.azurewebsites.net</code></pre>
-      <p>2. It's possible that you receive the error <b>HTTP Error 500.30 - ANCM In-Process Start Failure</b></p>
+      <p>1. When the Release pipeline has finished and the BlazorDeployment succeeded, open a browser window and navigate to the URL of your Web App (You can find it in Azure)</p>
+      <pre><code class="language-html">https://[YourAppName]blazor.azurewebsites.net</code></pre>
+      <p>2. It's possible that you receive the error <em>Access to fetch at 'https://localhost:44324/api/abp/api-definition' from origin 'https://abpioazuredevopsblazor.azurewebsites.net' has been blocked by CORS policy</em></p>
       <Figure Size="FigureSize.None">
-        <FigureImage Source="images/HTTP_Error_500.30_ANCM_In_Process_Start_Failure.jpg" />
+        <FigureImage Source="images/blazor_deployment_succeeded_cors_issue.jpg" />
       </Figure>
-      <p>3. Open the Debug Console in the Kudu window by navigating to [YourAppNameapi.<b>scm</b>.azurewebsites.net]</p>
-      <pre><code class="language-html">https://[YourAppName]api.scm.azurewebsites.net</code></pre>
+      <p>3. Open the appsettings.json file of the [YourAppName].HttpApi.Host project and add the url (https://[YourAppName]blazor.azurewebsites.net) of the Blazor Web App to the CorsOrigins section</p>
+         <Figure Size="FigureSize.None">
+        <FigureImage Source="images/appsettings_cors_origins.jpg" />
+      </Figure>
+      <p>4. Open a command prompt in the root folder of your project and Add, Commit and Push all your changes to the GitHub Repository</p>
+      <pre><code class="language-html">
+        git add .
+        git commit -m OutOfProcess
+        git push
+      </code></pre>
+      <p>5. Pushing changes to your GitHub repos should trigger a new Build as Continous Integration is enabled in the Build pipeline</p>
+      <p>6. When this new Build has successfully finished, a new Release should start</p>
+
+
+      @* <pre><code class="language-html">https://[YourAppName]api.scm.azurewebsites.net</code></pre>
       <p>4. Check if [YourAppName].HttpApi.Host files have been deployed</p>
       <pre><code class="language-html">dir</code></pre>
       <p>5. Check the dotnet version of the Azure Web App. Should be 3.1.x</p>
@@ -18,17 +31,9 @@
         <FigureImage Source="images/kudu_debug_console_check_dotnet_version.jpg" />
       </Figure>
       <p>6. To solve error <b>HTTP Error 500.30 - ANCM In-Process Start Failure</b> add &lt;AspNetCoreHostingModel&gtOutOfProcess&lt;/AspNetCoreHostingModel&gt; to the [YourAppName].HttpApi.Host.csproj file</p>
-      <Figure Size="FigureSize.None">
-        <FigureImage Source="images/add_AspNetCoreHostingModel_OutOfProcess_csproj.jpg" />
-      </Figure>
-      <p>7. Open a command prompt in the root folder of your project and Add, Commit and Push all your changes to the GitHub Repository</p>
-      <pre><code class="language-html">
-        git add .
-        git commit -m OutOfProcess
-        git push
-      </code></pre>
-      <p>8. Pushing changes to your GitHub repos should trigger a new Build as Continous Integration is enabled in the Build pipeline</p>
-      <p>9. When this new Build has successfully finished, a new Release should start</p>
+   
+      
+   
       <p>10. Navigate to the URL of the Web App after the new Release has finished and the Deployment succeeded. It's possible you see the error below</p>
       <Figure Size="FigureSize.None">
         <FigureImage Source="images/an_error_when_starting_the_application.jpg" />
@@ -89,6 +94,6 @@
       <p>32. If all goes well your [YourAppName].HttpApi.Host project should now be up and running. The Swagger page is served by your Web App in Azure</p>
       <Figure Size="FigureSize.None">
         <FigureImage Source="images/swagger_page_served_by_web_app_on_azure.jpg" />
-      </Figure>
+      </Figure> *@
     </Part>
 </PartTemplate>

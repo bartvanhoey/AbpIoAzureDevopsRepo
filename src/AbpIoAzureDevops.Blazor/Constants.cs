@@ -58,7 +58,7 @@ namespace AbpIoAzureDevops.Blazor
 
     public static class Part7
     {
-      public const string Title = "Part 7: Release pipeline finished, Deployment succeeded, but Web App still not working. How to fix the issues?";
+      public const string Title = "Part 7: Release pipeline finished, Deployment [YourAppName].HttpApi.Host project succeeded, but Web App still not working. How to fix the issues?";
       public const string Href = "part7";
       public const string PageIdentifier = "7";
       public const string PrevHref = "part6";
@@ -76,11 +76,20 @@ namespace AbpIoAzureDevops.Blazor
 
     public static class Part9
     {
-      public const string Title = "Part 9: Add an extra Stage in the Release pipeline in the AzureDevops to deploy [YourAppName].HttpApi.Blazor project";
+      public const string Title = "Part 9: Add an extra Stage in the Release pipeline in the AzureDevops to deploy [YourAppName].Blazor project";
       public const string Href = "part9";
       public const string PageIdentifier = "9";
       public const string PrevHref = "part8";
       public const string NextHref = "part10";
+    }
+
+        public static class Part10
+    {
+      public const string Title = "Part 10: Release pipeline finished, Deployment [YourAppName].Blazor project succeeded, but Web App still not working. How to fix the issues?";
+      public const string Href = "part10";
+      public const string PageIdentifier = "10";
+      public const string PrevHref = "part9";
+      public const string NextHref = "part11";
     }
 
   }
