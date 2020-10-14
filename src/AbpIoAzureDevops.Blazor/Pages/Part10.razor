@@ -33,11 +33,36 @@ NextHref="@Constants.Part10.NextHref" PageIdentifier="@Constants.Part10.PageIden
       </code></pre>
     <p>6. Pushing changes to your GitHub repository triggers a new Build. When this Build has finished, a new Release should start</p>
     <p>7. After the Release has finished, navigate to the URL of the Blazor Web App. You should see the index page of your Blazor Web App by now. Congratulations, you made it! </p>
-    <p>8. There is still another issue with the Web App. Click on Log in link to navigate to the login page and press F12 to open the Developers Tools in the browser </p>
+    <p>8. There is still another issue with the Web App when you click the Log in link to navigate to the login page. (press F12 to open the Developers Tools in the browser to see the error description) </p>
     <p>9. You probably receive error `Refused to display ... in a frame because it set 'X-Frame-Options' to 'sameorigin'`</p>
     <Figure Size="FigureSize.None">
       <FigureImage Source="images/refused_to_display_in_a_frame_because_it_set_X-Frame_Options_to_sameorigin.jpg" />
     </Figure>
+    <p>10. Add the code below in the Startup.cs file of thet [YourAppName].HttpApi.Host project</p>
+    <pre><code class="language-html">
+services.AddAntiforgery(options =>
+{
+    options.SuppressXFrameOptionsHeader = true;
+});
+    </code></pre>
+    <Figure Size="FigureSize.None">
+      <FigureImage Source="images/suppress_xframe_options_header.jpg" />
+    </Figure>
+    
+    <p>11. Add, Commit and push the changes to your GitHub repository.</p>
+    <p>12. Wait until the new Build and Release have finished. Navigate to the URL of your Blazor Web App</p>
+    <p>13. The previous error `Refused to display ... in a frame because it set 'X-Frame-Options' to 'sameorigin'` is gone</p>
+    <p>14. Now you probably get a 500 Error - unauthorized_client. Still some issues with Identity Server?</p>
+    <Figure Size="FigureSize.None">
+      <FigureImage Source="images/unauthorized_client.jpg" />
+    </Figure>
+    <p>15. Set the RootUrl value in the AbpIoAzureDevops_Blazor section of the appsettings.json file of the [YourAppName].DbMigrator project to the URL of your Blazor Web App (https://[YourAppName]blazor.azurewebsites.net)</p>
+    <p>16. Run the [YourAppName].DbMigrator project to apply the settings</p>
+    <Figure Size="FigureSize.None">
+      <FigureImage Source="images/rooturl_appsettings_dbmigrator_project.jpg" />
+    </Figure>
+
+
 
     @* <pre><code class="language-html">https://[YourAppName]api.scm.azurewebsites.net</code></pre>
       <pre><code class="language-html">dir</code></pre>
