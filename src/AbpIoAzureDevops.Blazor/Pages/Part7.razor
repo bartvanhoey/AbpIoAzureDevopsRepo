@@ -23,9 +23,9 @@
       </Figure>
       <p>7. Open a command prompt in the root folder of your project and Add, Commit and Push all your changes to the GitHub repository</p>
       <pre><code class="language-html">
-        git add .
-        git commit -m OutOfProcess
-        git push
+git add .
+git commit -m OutOfProcess
+git push
       </code></pre>
       <p>8. Pushing changes to your GitHub repositorys should trigger a new Build as Continous Integration is enabled in the Build pipeline</p>
       <p>9. When this new Build has successfully finished, a new Release should start</p>
@@ -43,9 +43,9 @@
       </Figure>
       <p>14. Add, Commit and Push all your changes to your GitHub repository</p>
        <pre><code class="language-html">
-        git add .
-        git commit -m CommentOutDebugStatements
-        git push
+git add .
+git commit -m CommentOutDebugStatements
+git push
       </code></pre>
       <p>15. Wait until the new Build and new Release have been finished</p>
       <p>16. Navigate to the URL of the Web App. You should see the same error as in 10</p>
@@ -58,17 +58,17 @@
       </Figure>
       <p>19. Add the section below to the [YourAppName].HttpApi.Host.proj file to copy the missing tempkey.rsa file to the output directory </p>
       <pre><code class="language-html">
-        &lt;ItemGroup&gt
-          &lt;None Update="tempkey.rsa"&gt
-            &lt;CopyToOutputDirectory&gtPreserveNewest&lt;/CopyToOutputDirectory&gt
-          &lt;/None&gt
-        &lt;/ItemGroup&gt
+&lt;ItemGroup&gt
+  &lt;None Update="tempkey.rsa"&gt
+    &lt;CopyToOutputDirectory&gtPreserveNewest&lt;/CopyToOutputDirectory&gt
+  &lt;/None&gt
+&lt;/ItemGroup&gt
       </code></pre>
       <p>20. Add, Commit and Push all your changes to your GitHub repository</p>
       <pre><code class="language-html">
-        git add .
-        git commit -m CopyToOutputDirectory
-        git push
+git add .
+git commit -m CopyToOutputDirectory
+git push
       </code></pre>
       <p>21. Wait until the new Build and new Release have finished</p>
       <p>22. Navigate to the URL of the Web App to see if the error is gone</p>
