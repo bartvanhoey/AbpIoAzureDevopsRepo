@@ -1,99 +1,122 @@
 @page "/part10"
 
-<PartTemplate Title="@Constants.Part10.Title" PrevHref="@Constants.Part10.PrevHref" Href="@Constants.Part10.Href" NextHref="@Constants.Part10.NextHref" PageIdentifier="@Constants.Part10.PageIdentifier" >
-    <Part>
-      <p>1. When the Release pipeline has finished and the BlazorDeployment succeeded, open a browser window and navigate to the URL of your Web App (You can find it in Azure)</p>
-      <pre><code class="language-html">https://[YourAppName]blazor.azurewebsites.net</code></pre>
-      <p>2. It's possible that you receive the error <em>Access to fetch at 'https://localhost:44324/api/abp/api-definition' from origin 'https://abpioazuredevopsblazor.azurewebsites.net' has been blocked by CORS policy</em></p>
+<PartTemplate Title="@Constants.Part10.Title" PrevHref="@Constants.Part10.PrevHref" Href="@Constants.Part10.Href"
+NextHref="@Constants.Part10.NextHref" PageIdentifier="@Constants.Part10.PageIdentifier">
+  <Part>
+    <p>1. When the Release pipeline has finished and the BlazorDeployment succeeded, open a browser window and navigate
+      to the URL of your Web App (You can find it in Azure)</p>
+    <pre><code class="language-html">https://[YourAppName]blazor.azurewebsites.net</code></pre>
+    <p>2. It's possible that you receive the error <em>Access to fetch at
+        'https://localhost:44324/api/abp/api-definition' from origin 'https://abpioazuredevopsblazor.azurewebsites.net'
+        has been blocked by CORS policy</em></p>
+    <Figure Size="FigureSize.None">
+      <FigureImage Source="images/appsettings_blazor_project.jpg" />
+    </Figure>
+    @* <p>3. Open the appsettings.json file of the [YourAppName].HttpApi.Host project and add the url
+      (https://[YourAppName]blazor.azurewebsites.net) of the Blazor Web App to the CorsOrigins section</p>
       <Figure Size="FigureSize.None">
-        <FigureImage Source="images/blazor_deployment_succeeded_cors_issue.jpg" />
-      </Figure>
-      <p>3. Open the appsettings.json file of the [YourAppName].HttpApi.Host project and add the url (https://[YourAppName]blazor.azurewebsites.net) of the Blazor Web App to the CorsOrigins section</p>
-         <Figure Size="FigureSize.None">
-        <FigureImage Source="images/appsettings_cors_origins.jpg" />
-      </Figure>
-      <p>4. Open a command prompt in the root folder of your project and Add, Commit and Push all your changes to the GitHub Repository</p>
-      <pre><code class="language-html">
+      <FigureImage Source="images/appsettings_cors_origins.jpg" />
+      </Figure> *@
+
+    <p>3. Open the appsettings.json file in the wwwwroot folder of the [YourAppName].Blazor project and update the values Authority and BaseUrl
+     with https://[YourAppName]api.azurewebsites.net/ </p>
+    <Figure Size="FigureSize.None">
+      <FigureImage Source="images/appsettings_cors_origins.jpg" />
+    </Figure>
+
+    <p>4. Open a command prompt in the root folder of your project and Add, Commit and Push all your changes to the
+      GitHub Repository</p>
+    <pre><code class="language-html">
         git add .
         git commit -m OutOfProcess
         git push
       </code></pre>
-      <p>5. Pushing changes to your GitHub repos should trigger a new Build as Continous Integration is enabled in the Build pipeline</p>
-      <p>6. When this new Build has successfully finished, a new Release should start</p>
+    <p>5. Pushing changes to your GitHub repos should trigger a new Build as Continous Integration is enabled in the
+      Build pipeline</p>
+    <p>6. When this new Build has successfully finished, a new Release should start</p>
 
 
-      @* <pre><code class="language-html">https://[YourAppName]api.scm.azurewebsites.net</code></pre>
+    @* <pre><code class="language-html">https://[YourAppName]api.scm.azurewebsites.net</code></pre>
       <p>4. Check if [YourAppName].HttpApi.Host files have been deployed</p>
       <pre><code class="language-html">dir</code></pre>
       <p>5. Check the dotnet version of the Azure Web App. Should be 3.1.x</p>
       <pre><code class="language-html">dotnet --version</code></pre>
       <Figure Size="FigureSize.None">
-        <FigureImage Source="images/kudu_debug_console_check_dotnet_version.jpg" />
+      <FigureImage Source="images/kudu_debug_console_check_dotnet_version.jpg" />
       </Figure>
-      <p>6. To solve error <b>HTTP Error 500.30 - ANCM In-Process Start Failure</b> add &lt;AspNetCoreHostingModel&gtOutOfProcess&lt;/AspNetCoreHostingModel&gt; to the [YourAppName].HttpApi.Host.csproj file</p>
-   
-      
-   
-      <p>10. Navigate to the URL of the Web App after the new Release has finished and the Deployment succeeded. It's possible you see the error below</p>
+      <p>6. To solve error <b>HTTP Error 500.30 - ANCM In-Process Start Failure</b> add
+      &lt;AspNetCoreHostingModel&gtOutOfProcess&lt;/AspNetCoreHostingModel&gt; to the [YourAppName].HttpApi.Host.csproj
+      file</p>
+
+
+
+      <p>10. Navigate to the URL of the Web App after the new Release has finished and the Deployment succeeded. It's
+      possible you see the error below</p>
       <Figure Size="FigureSize.None">
-        <FigureImage Source="images/an_error_when_starting_the_application.jpg" />
+      <FigureImage Source="images/an_error_when_starting_the_application.jpg" />
       </Figure>
       <p>11. Open the Debug Console in the Kudu window by navigating to [YourAppNameapi.<b>scm</b>.azurewebsites.net]</p>
       <pre><code class="language-html">https://[YourAppName]api.scm.azurewebsites.net</code></pre>
-      <p>12. Try to invoke an error description by entering following command in the wwwroot folder of the Debug Console</p>
+      <p>12. Try to invoke an error description by entering following command in the wwwroot folder of the Debug
+      Console</p>
       <pre><code class="language-html">dotnet [YourAppName].HttpApi.Host.dll</code></pre>
-      <p>13. If you receive no Error description. Go to Program.cs from the [YourAppName].HttpApi.Host project and comment out the if debug statements</p>
+      <p>13. If you receive no Error description. Go to Program.cs from the [YourAppName].HttpApi.Host project and comment
+      out the if debug statements</p>
       <Figure Size="FigureSize.None">
-        <FigureImage Source="images/comment_out_if_debug_statements_in_ProgramCs.jpg" />
+      <FigureImage Source="images/comment_out_if_debug_statements_in_ProgramCs.jpg" />
       </Figure>
       <p>14. Add, Commit and Push all your changes to your GitHub repo</p>
-       <pre><code class="language-html">
-        git add .
-        git commit -m CommentOutDebugStatements
-        git push
+      <pre><code class="language-html">
+      git add .
+      git commit -m CommentOutDebugStatements
+      git push
       </code></pre>
       <p>15. Wait until the new Build and new Release have been finished</p>
       <p>16. Navigate to the URL of the Web App. You should see the same error as in 10</p>
-       <p>17. Open the Debug Console in the Kudu window by navigating to [YourAppNameapi.<b>scm</b>.azurewebsites.net]</p>
+      <p>17. Open the Debug Console in the Kudu window by navigating to [YourAppNameapi.<b>scm</b>.azurewebsites.net]</p>
       <pre><code class="language-html">https://[YourAppName]api.scm.azurewebsites.net</code></pre>
-      <p>18. Enter the command below in the wwwroot folder of the Debug Console to start the application. Now you should see an error description</p>
+      <p>18. Enter the command below in the wwwroot folder of the Debug Console to start the application. Now you should
+      see an error description</p>
       <pre><code class="language-html">dotnet [YourAppName].HttpApi.Host.dll</code></pre>
       <Figure Size="FigureSize.None">
-        <FigureImage Source="images/could_not_find_file_tempkey.rsa.jpg" />
+      <FigureImage Source="images/could_not_find_file_tempkey.rsa.jpg" />
       </Figure>
-      <p>19. Add the section below to the [YourAppName].HttpApi.Host.proj file to copy the missing tempkey.rsa file to the output directory </p>
+      <p>19. Add the section below to the [YourAppName].HttpApi.Host.proj file to copy the missing tempkey.rsa file to the
+      output directory </p>
       <pre><code class="language-html">
-        &lt;ItemGroup&gt
-          &lt;None Update="tempkey.rsa"&gt
-            &lt;CopyToOutputDirectory&gtPreserveNewest&lt;/CopyToOutputDirectory&gt
-          &lt;/None&gt
-        &lt;/ItemGroup&gt
+      &lt;ItemGroup&gt
+      &lt;None Update="tempkey.rsa"&gt
+      &lt;CopyToOutputDirectory&gtPreserveNewest&lt;/CopyToOutputDirectory&gt
+      &lt;/None&gt
+      &lt;/ItemGroup&gt
       </code></pre>
       <p>20. Add, Commit and Push all your changes to your GitHub repo</p>
       <pre><code class="language-html">
-        git add .
-        git commit -m CopyToOutputDirectory
-        git push
+      git add .
+      git commit -m CopyToOutputDirectory
+      git push
       </code></pre>
       <p>21. Wait until the new Build and new Release have finished</p>
       <p>22. Navigate to the URL of the Web App to see if the error is gone</p>
       <p>23. It's possible that you get another error: This page isn’t working</p>
       <p>24. Open the Debug Console in the Kudu window by navigating to [YourAppNameapi.<b>scm</b>.azurewebsites.net]</p>
       <pre><code class="language-html">https://[YourAppName]api.scm.azurewebsites.net</code></pre>
-      <p>25. Enter the command below in the wwwroot folder of the Debug Console to get a more specific error description</p>
+      <p>25. Enter the command below in the wwwroot folder of the Debug Console to get a more specific error
+      description</p>
       <pre><code class="language-html">dotnet [YourAppName].HttpApi.Host.dll</code></pre>
       <p>26. Probably you receive the error description below</p>
       <Figure Size="FigureSize.None">
-        <FigureImage Source="images/client_not_allowed_to_access_server.jpg" />
+      <FigureImage Source="images/client_not_allowed_to_access_server.jpg" />
       </Figure>
       <p>27. Go to the Azure Portal and select your [YourAppName]server</p>
       <p>28. Click on the Firewalls and virtual networks menu</p>
       <p>29. Select Yes in toggle `Allow Azure services and resources to access this server`</p>
       <p>30. Click the Save button and close the window when the Firewall rules have been updated</p>
       <p>31. Navigate to the URL of the Web App and Refresh the page to see if you still get an error</p>
-      <p>32. If all goes well your [YourAppName].HttpApi.Host project should now be up and running. The Swagger page is served by your Web App in Azure</p>
+      <p>32. If all goes well your [YourAppName].HttpApi.Host project should now be up and running. The Swagger page is
+      served by your Web App in Azure</p>
       <Figure Size="FigureSize.None">
-        <FigureImage Source="images/swagger_page_served_by_web_app_on_azure.jpg" />
+      <FigureImage Source="images/swagger_page_served_by_web_app_on_azure.jpg" />
       </Figure> *@
-    </Part>
+  </Part>
 </PartTemplate>
