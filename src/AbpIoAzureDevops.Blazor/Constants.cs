@@ -4,7 +4,7 @@ namespace AbpIoAzureDevops.Blazor
   {
     public static class Part1
     {
-      public const string Title = "Part 1: Create a new GitHub Repository";
+      public const string Title = "Part 1: Create a new GitHub repository";
       public const string Href = "part1";
       public const string PageIdentifier = "1";
       public const string PrevHref = "";

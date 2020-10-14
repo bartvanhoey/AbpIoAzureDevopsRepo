@@ -10,30 +10,28 @@ NextHref="@Constants.Part10.NextHref" PageIdentifier="@Constants.Part10.PageIden
         'https://localhost:44324/api/abp/api-definition' from origin 'https://abpioazuredevopsblazor.azurewebsites.net'
         has been blocked by CORS policy</em></p>
     <Figure Size="FigureSize.None">
-      <FigureImage Source="images/appsettings_blazor_project.jpg" />
+      <FigureImage Source="images/blazor_deployment_succeeded_cors_issue.jpg" />
     </Figure>
-    @* <p>3. Open the appsettings.json file of the [YourAppName].HttpApi.Host project and add the url
+    <p>3. Open the appsettings.json file of the [YourAppName].HttpApi.Host project and add the URL
       (https://[YourAppName]blazor.azurewebsites.net) of the Blazor Web App to the CorsOrigins section</p>
       <Figure Size="FigureSize.None">
       <FigureImage Source="images/appsettings_cors_origins.jpg" />
-      </Figure> *@
+      </Figure>
 
-    <p>3. Open the appsettings.json file in the wwwwroot folder of the [YourAppName].Blazor project and update the values Authority and BaseUrl
-     with https://[YourAppName]api.azurewebsites.net/ </p>
+    <p>4. Open the appsettings.json file in the wwwwroot folder of the [YourAppName].Blazor project and update the values Authority and BaseUrl
+     with the URL of the API Web App (https://[YourAppName]api.azurewebsites.net/)  </p>
     <Figure Size="FigureSize.None">
-      <FigureImage Source="images/appsettings_cors_origins.jpg" />
+      <FigureImage Source="images/appsettings_blazor_project.jpg" />
     </Figure>
 
-    <p>4. Open a command prompt in the root folder of your project and Add, Commit and Push all your changes to the
-      GitHub Repository</p>
+    <p>5. Open a command prompt in the root folder of your project and Add, Commit and Push all your changes to the
+      GitHub repository</p>
     <pre><code class="language-html">
         git add .
         git commit -m OutOfProcess
         git push
       </code></pre>
-    <p>5. Pushing changes to your GitHub repos should trigger a new Build as Continous Integration is enabled in the
-      Build pipeline</p>
-    <p>6. When this new Build has successfully finished, a new Release should start</p>
+    <p>6. Pushing changes to your GitHub repository triggers a new Build. When this Build has finished, a new Release should start</p>
 
 
     @* <pre><code class="language-html">https://[YourAppName]api.scm.azurewebsites.net</code></pre>
@@ -65,7 +63,7 @@ NextHref="@Constants.Part10.NextHref" PageIdentifier="@Constants.Part10.PageIden
       <Figure Size="FigureSize.None">
       <FigureImage Source="images/comment_out_if_debug_statements_in_ProgramCs.jpg" />
       </Figure>
-      <p>14. Add, Commit and Push all your changes to your GitHub repo</p>
+      <p>14. Add, Commit and Push all your changes to your GitHub repository</p>
       <pre><code class="language-html">
       git add .
       git commit -m CommentOutDebugStatements
@@ -90,7 +88,7 @@ NextHref="@Constants.Part10.NextHref" PageIdentifier="@Constants.Part10.PageIden
       &lt;/None&gt
       &lt;/ItemGroup&gt
       </code></pre>
-      <p>20. Add, Commit and Push all your changes to your GitHub repo</p>
+      <p>20. Add, Commit and Push all your changes to your GitHub repository</p>
       <pre><code class="language-html">
       git add .
       git commit -m CopyToOutputDirectory
