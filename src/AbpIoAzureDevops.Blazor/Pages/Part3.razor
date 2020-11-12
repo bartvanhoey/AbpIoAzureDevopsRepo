@@ -3,34 +3,82 @@
 <PartTemplate Title="@Constants.Part3.Title" PrevHref="@Constants.Part3.PrevHref" Href="@Constants.Part3.Href" NextHref="@Constants.Part3.NextHref" PageIdentifier="@Constants.Part3.PageIdentifier" >
     <Part>
         <p>1. Login into the <a href="https://portal.azure.com/" target="_blank">Azure Portal</a></p>
-        <p>2. Click on Create a resouce</p>
-        <p>3. Search for SQL Database</p>
-        <p>4. Click the Create button in the SQL Database window </p>
-        <p>5. Create a new resource group. Name it rg[YourAppName] </p>
-        <p>6. Enter [YourAppName]Db as database name </p>
-        <p>7. Create a new Server and name it [yourappname]server </p>
-        <p>8. Enter a serveradmin login and passwords. Click OK</p>
-        <p>9. Select your Location</p>
-        <p>10. Check Allow Azure services to access server</p>
-        <p>11. Click on Configure database. Go for the Basic version and click the Apply button</p>
-        <p>12. Click on the Review + create button. Click Create</p>
-        <p>13. Click on Go to resource when the SQL Database is created</p>
-        <p>14. Click Set server firewall menu item</p>
-        <p>15. Click on Add Client IP menu item and click on the Save button</p>
+        <p>2. Click on <b>Create a resouce</b></p>
+        <p>3. Search for <em> SQL Database</em></p>
+        <p>4. Click the <b>Create</b> button in the <em>SQL Database window</em></p>
+        <p>5. Create a new resource group. Name it <em>rg[YourAppName]</em> </p>
+        <p>6. Enter <em>[YourAppName]Db</em> as database name </p>
+        <p>7. Create a new Server and name it <em>[yourappname]server</em></p>
+        <p>8. Enter a serveradmin login and passwords. Click the <b>OK</b> button</p>
+        <p>9. Select your <em>Location</em></p>
+        <p>10. Check <em>Allow Azure services to access server</em></p>
+        <p>11. Click on <b>Configure database</b>. Go for the <em>Basic</em> version and click the <b>Apply</b> button</p>
+        <p>12. Click on the <b>Review + create</b> button. Click <b>Create</b></p>
+        <p>13. Click on <b>Go to resource</b> when the SQL Database is created</p>
+        <p>14. Click <b>Set server firewall</b> menu item</p>
+        <p>15. Click on <b>Add Client IP</b> menu item and click on the <b>Save</b> button</p>
         <p>16. Close the Firewall settings window</p>
-        <p>17. Click on Show database connection strings and copy the connection string</p>
-        <p>18. Replace the Default connection string in the appsettings.json files of the [YourAppName].HttpApi.Host and the YourAppName.DbMigrator project</p>
-        <p>19. Do not forget to replace {your_password} with the previously entered password</p>
-        <p>20. Open a command prompt in the YourAppName.DbMigrator and run the project to apply the database migrations to your SQL Database in azure</p>
+        <p>17. Click on <b>Show database connection strings</b> and copy the <em>connection string</em></p>
+        <p>19. Add a copy of the <em>appsettings.json</em> files (rename to appsettings.Staging.json) in the <em>[YourAppName].HttpApi.Host</em> and the <em>[YourAppName].DbMigrator</em> project</p>
+        <p>18. Replace the Default connection string in the <em>appsettings.Staging.json</em> files of the <em>[YourAppName].HttpApi.Host</em> and the <em>[YourAppName].DbMigrator</em> project</p>
+        <p>19. Do not forget to replace {your_password} with the correct password</p>
+        <p>20. Open file <em>DbMigratorHostedService.cs</em> in the [YourAppName].DbMigrator project and update the code </p>   
+        <text>
+public async Task StartAsync(CancellationToken cancellationToken)
+{
+        using (var application = AbpApplicationFactory.Create&lt;ConplementAGDbMigratorModule&gt;(options =>
+        {
+        options.UseAutofac();
+        options.Services.AddLogging(c => c.AddSerilog());
+
+        // Add this line of code to make it possible read from appsettings.Staging.json
+        options.Services.ReplaceConfiguration(BuildConfiguration());
+
+        }))
+        {
+        application.Initialize();
+
+        await application
+            .ServiceProvider
+            .GetRequiredService&lt;ConplementAGDbMigrationService&gt;()
+            .MigrateAsync();
+
+        application.Shutdown();
+
+        _hostApplicationLifetime.StopApplication();
+        }
+    }  
+}   
+        </text>
+
+        <p>21. Open the file <em>[YourAppName].DbMigrator.csproj</em>and paste in the code below</p>
+        <pre><code class="language-html">
+<ItemGroup>
+    <Content Include="appsettings.Staging.json">
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+</ItemGroup>
+        </code></pre>
+        <p>22. Open a command prompt in the <em>[YourAppName].DbMigrator</em> project and set the <em>Environment</em> to <em>Staging</em></p>
+        <pre><code class="language-html">set ASPNETCORE_ENVIRONMENT=Staging</code></pre>
+        <p>23. Check the <em>Environment</em> by running the command below</p>
+        <pre><code class="language-html">echo %ASPNETCORE_ENVIRONMENT%</code></pre>
+        <p>24. Run the command below to apply the <em>database migrations</em> to your <em>SQL Database</em> in <em>Azure</em></p>
         <pre><code class="language-html">dotnet run</code></pre>
-        <p>21. Run both the [YourAppName].HttpApi.Host and [YourAppName].Blazor project to see if everything is working</p>
-        <p>22. stop both the [YourAppName].HttpApi.Host and [YourAppName].Blazor project</p>
-        <p>23. Open a command prompt in the root folder of your project and add all your changes to the GitHub repository</p>
-        <pre><code class="language-html">git add .</code></pre>
-        <p>24. Commit your changes</p>
-        <pre><code class="language-html">git commit -m initialcommit</code></pre>
-        <p>25. Push everything to the GitHub repository in the cloud</p>
-        <pre><code class="language-html">git push</code></pre>
+        <p>25. Open a command prompt in the <em>[YourAppName].HttpApi.Host</em> project and set the <em>Environment</em> to <em>Staging</em></p>
+        <pre><code class="language-html">set ASPNETCORE_ENVIRONMENT=Staging</code></pre>
+        <p>26. Check the <em>Environment</em> by running the command below</p>
+        <pre><code class="language-html">echo %ASPNETCORE_ENVIRONMENT%</code></pre>
+        <p>27. Enter the command below in your <em>[YourAppName].HttpApi.Host</em> project to check your API is working
+        <pre><code class="language-html">dotnet run --no-launch-profile</code></pre>
+        <p>28. Stop the <em>[YourAppName].HttpApi.Host</em> by entering <em>CTRL+C</em></p>
+        <p>29. Open a command prompt in the root folder of your project and add, commit and push all your changes to the GitHub repository</p>
+       <pre><code class="language-html">
+git add .
+git commit -m initialcommit
+git push
+      </code></pre>
 
     </Part>
 </PartTemplate>
