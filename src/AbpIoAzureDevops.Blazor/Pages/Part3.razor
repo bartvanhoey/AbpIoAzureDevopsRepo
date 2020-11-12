@@ -23,7 +23,9 @@
         <p>18. Replace the Default connection string in the <em>appsettings.Staging.json</em> files of the <em>[YourAppName].HttpApi.Host</em> and the <em>[YourAppName].DbMigrator</em> project</p>
         <p>19. Do not forget to replace {your_password} with the correct password</p>
         <p>20. Open file <em>DbMigratorHostedService.cs</em> in the [YourAppName].DbMigrator project and update the code </p>   
-        <text>
+
+        <pre><code class="javascript">
+<text>
 public async Task StartAsync(CancellationToken cancellationToken)
 {
         using (var application = AbpApplicationFactory.Create&lt;ConplementAGDbMigratorModule&gt;(options =>
@@ -50,15 +52,18 @@ public async Task StartAsync(CancellationToken cancellationToken)
     }  
 }   
         </text>
+        </code></pre>
 
         <p>21. Open the file <em>[YourAppName].DbMigrator.csproj</em>and paste in the code below</p>
         <pre><code class="language-html">
-<ItemGroup>
-    <Content Include="appsettings.Staging.json">
-        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-</ItemGroup>
+    <text>
+&lt;ItemGroup&gt;
+    &lt;Content Include="appsettings.Staging.json"&gt;
+        &lt;CopyToPublishDirectory&gt;PreserveNewest&lt;/CopyToPublishDirectory&gt;
+        &lt;CopyToOutputDirectory&gt;Always&lt;/CopyToOutputDirectory&gt;
+    &lt;/Content&gt;
+&lt;/ItemGroup&gt;
+    </text>
         </code></pre>
         <p>22. Open a command prompt in the <em>[YourAppName].DbMigrator</em> project and set the <em>Environment</em> to <em>Staging</em></p>
         <pre><code class="language-html">set ASPNETCORE_ENVIRONMENT=Staging</code></pre>
