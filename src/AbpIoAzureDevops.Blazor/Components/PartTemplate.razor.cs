@@ -26,9 +26,6 @@ namespace AbpIoAzureDevops.Blazor.Components
       await JSRuntime.InvokeVoidAsync("Prism.highlightAll");
     }
 
-
-
-
     protected override void OnParametersSet()
     {
       if (!string.IsNullOrWhiteSpace(PrevHref))
