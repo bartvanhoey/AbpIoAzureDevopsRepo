@@ -2,15 +2,15 @@
 
 <PartTemplate Title="@Constants.Part7.Title" PrevHref="@Constants.Part7.PrevHref" Href="@Constants.Part7.Href" NextHref="@Constants.Part7.NextHref" PageIdentifier="@Constants.Part7.PageIdentifier" >
     <Part>
-      <p>1. When the Release pipeline has finished and the ApiDeployment succeeded, open a browser window and navigate to the URL of your Web App (You can find it in Azure)</p>
+      <p>1. When the Release pipeline has finished and the Deployment of the API succeeded, open a browser window and navigate to the URL of your Web App (You can find it in Azure)</p>
       <pre><code class="language-html">https://[YourAppName]api.azurewebsites.net</code></pre>
       <p>2. It's possible that you receive the error <em>HTTP Error 500.30 - ANCM In-Process Start Failure</em></p>
       <Figure Size="FigureSize.None">
         <FigureImage Source="images/HTTP_Error_500.30_ANCM_In_Process_Start_Failure.jpg" />
       </Figure>
-      <p>3. Open the <em>Debug Console</em> in the <em>Kudu window</em> by navigating to [YourAppName]api.<b>scm</b>.azurewebsites.net</p>
+      <p>3. Open the <em>Debug Console</em> in the <em>Kudu</em> window by navigating to <em>[YourAppName]api.scm.azurewebsites.net</em></p>
       <pre><code class="language-html">https://[YourAppName]api.scm.azurewebsites.net</code></pre>
-      <p>4. Check if [YourAppName].HttpApi.Host files have been deployed in the <em>home\site\wwwroot</em> folder</p>
+      <p>4. Run the <em>dir</em> command to theck if [YourAppName].HttpApi.Host files have been deployed in the <em>home\site\wwwroot</em> folder</p>
       <pre><code class="language-html">dir</code></pre>
       <p>5. Check the dotnet version of the Azure Web App. Should be 3.1.x</p>
       <pre><code class="language-html">dotnet --version</code></pre>
@@ -33,7 +33,7 @@ git push
       <Figure Size="FigureSize.None">
         <FigureImage Source="images/an_error_when_starting_the_application.jpg" />
       </Figure>
-      <p>11. Open the <em>Debug Console</em> in the <em>Kudu</em> window by navigating to [YourAppNameapi].<b>scm</b>.azurewebsites.net</p>
+      <p>11. Open the <em>Debug Console</em> in the <em>Kudu</em> window by navigating to [YourAppNameapi].scm.azurewebsites.net</p>
       <pre><code class="language-html">https://[YourAppName]api.scm.azurewebsites.net</code></pre>
       <p>12. Try to invoke an <em>error description</em> by entering the command below in the <em>home/site/wwwroot</em> folder of the <em>Debug Console</em></p>
       <pre><code class="language-html">dotnet [YourAppName].HttpApi.Host.dll</code></pre>
@@ -49,9 +49,9 @@ git push
       </code></pre>
       <p>15. Wait until the new Build and new Release have finished and the Deployment has succeeded</p>
       <p>16. Navigate to the URL of the Web App. You should see the same error <em>An error occurred while starting the application.</em> again</p>
-       <p>17. Open the <em>Debug Console</em> in the <em>Kudu</em> window by navigating to [YourAppNameapi].<b>scm</b>.azurewebsites.net</p>
+       <p>17. Open the <em>Debug Console</em> in the <em>Kudu</em> window by navigating to [YourAppNameapi].scm.azurewebsites.net</p>
       <pre><code class="language-html">https://[YourAppName]api.scm.azurewebsites.net</code></pre>
-      <p>18. Enter the command below in the wwwroot folder of the <em>Debug Console</em> to start the application. Now you should see the detailed error description</p>
+      <p>18. Enter the command below in the wwwroot folder of the <em>Debug Console</em> to start the application. Now you should see the detailed error description. The file <em>tempkey.rsa</em> is missing</p>
       <pre><code class="language-html">dotnet [YourAppName].HttpApi.Host.dll</code></pre>
       <Figure Size="FigureSize.None">
         <FigureImage Source="images/could_not_find_file_tempkey.rsa.jpg" />
@@ -73,7 +73,7 @@ git push
       <p>21. Wait until the new Build and Release have finished and the Deployment has succeeded</p>
       <p>22. Navigate to the URL of the Web App to see if the error is gone</p>
       <p>23. It's possible that you get another error: <em>This page isn’t working</em></p>
-      <p>24. Open the <em>Debug Console</em> in the <em>Kudu</em> window by navigating to <em>[YourAppNameapi].<b>scm</b>.azurewebsites.net</em></p>
+      <p>24. Open the <em>Debug Console</em> in the <em>Kudu</em> window by navigating to <em>[YourAppNameapi].scm.azurewebsites.net</em></p>
       <pre><code class="language-html">https://[YourAppName]api.scm.azurewebsites.net</code></pre>
       <p>25. Enter the command below in the <em>wwwroot</em> folder of the <em>Debug Console</em> to get a more specific error description</p>
       <pre><code class="language-html">dotnet [YourAppName].HttpApi.Host.dll</code></pre>
@@ -82,7 +82,7 @@ git push
         <FigureImage Source="images/client_not_allowed_to_access_server.jpg" />
       </Figure>
       <p>27. Go to your <em>Azure Portal</em> and select your <em>[YourAppName]server</em></p>
-      <p>28. Click on the <b>Firewalls and virtual networks</b> in the left menu</p>
+      <p>28. Click on <b>Firewalls and virtual networks</b> in the left menu</p>
       <p>29. Select <b>Yes</b> in the <em>Allow Azure services and resources to access this server</em> toggle</p>
       <p>30. Click the <b>Save</b> button. Click <b>OK</b> in the <em>Successfully updated server firewall rules</em> window. Close the window </p>
       <p>31. Navigate to the URL of the Web App and Refresh the page</p>
