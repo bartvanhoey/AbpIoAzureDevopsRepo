@@ -3,33 +3,34 @@
 <PartTemplate Title="@Constants.Part4.Title" PrevHref="@Constants.Part4.PrevHref" Href="@Constants.Part4.Href" NextHref="@Constants.Part4.NextHref" PageIdentifier="@Constants.Part4.PageIdentifier" >
     <Part>
         <p>1. Sign in into <a href="https://azure.microsoft.com/en-us/services/devops/" target="_blank"> Azure DevOps</a></p>
-        <p>2. Click on New organization and follow the steps to create a new Organisation. Name it [YourAppName]org</p>
-        <p>3. Enter [YourAppName]Proj as project name in the Create a project to get started window</p>
-        <p>4. Select Public visibility and click the Create project button</p>
+        <p>2. Click on <b>New organization</b> and follow the steps to create a new organisation. Name it [YourAppName]org</p>
+        <p>3. Enter [YourAppName]Proj as project name in the <em>Create a project to get started</em> window</p>
+        <p>4. Select <b>Public visibility</b> and click the <b>Create project</b> button</p>
         <p>5. Click on the Pipelines button to continue</p>
-        <p>6. Click on the Create Pipelines button</p>
-        <p>7. Click on Use the classic editor to create a pipeline without YAML in the Where is your code window</p>
-        <p>8. Select GitHub in the Select your repository window</p>
-        <p>9. Enter a Connection name. [YourAppName]GitHubConnection and click on Authorize using OAuth</p>
-        <p>10. Select your GitHub [YourAppName]repo and click Continue</p>
-        <p>11. Search for ASP.NET Core in the Select a template window</p>
-        <p>12. Select the ASP.NET Core template and click the Apply button</p>
-        <p>13. Enter a name for the Build pipeline and select vs2017-win2016 in the Agent Specification dropdown</p>
+        <p>6. Click on the <b>Create Pipeline</b> button</p>
+        <p>7. Click on <b>Use the classic editor to create a pipeline without YAML</b> in the <em>Where is your code</em> window</p>
+        <p>8. Select <b>GitHub</b> in the <em>Select your repository</em> window</p>
+        <p>9. Enter <em> Connection name</em>. [YourAppName]GitHubConnection and click on <b>Authorize using OAuth</b></p>
+        <p>10. Select your GitHub <em>[YourAppName]repo</em> and click <b>Continue</b></p>
+        <p>11. Search for <em>ASP.NET Core</em> in the <em>Select a template</em> window</p>
+        <p>12. Select the <em>ASP.NET Core</em> template and click the <b>Apply</b> button</p>
+        <p>13. Enter <em>[YourAppName]BuildPipeline</em> in the pipeline <em>Name</em> field and select <em>vs2017-win2016</em> in the <em>Agent Specification</em> dropdown</p>
         <Figure Size="FigureSize.None">
           <FigureImage Source="images/buildpipeline_step1.jpg" />
         </Figure>
-        <p>14. Click on the plus sign to Add a task to Agent job 1</p>
-        <p>15. Search for Use .NET Core sdk. Click on the Add button and move it to the first place</p>
-        <p>16. Enter 3.1.x int Version input field</p>
-        <p>17. Leave all the default settings for the other tasks in the pipeline</p>
-        <p>18. Check Enable continous integration in the Triggers Tab</p>
-        <p>19. Click on Save & queue in the top menu. And click Save an run to run the Build pipeline</p>
-        <p>20. When the Build pipeline has finished. Click on 1 published; 1 consumed</p>
+        <p>14. Click on the <b>plus sign</b> to <em>Add a task to Agent job 1</em></p>
+        <p>15. Search for <em>Use .NET Core</em> sdk. Select the <em>Use .NET Core</em> task and click  on the <b>Add</b> button</p>
+        <p>16. Move the <em>Use .NET Core</em> task to the first place, just before the <em>Restore</em>task</p> 
+        <p>17. Enter <em>3.1.x</em> in the <em>Version</em> input field</p>
+        <p>18. Leave all the default settings for the other tasks in the pipeline</p>
+        <p>19. Check <b>Enable continous integration</b> in the <em>Triggers</em> Tab</p>
+        <p>20. Click on <b>Save & queue</b> in the top menu. Click on <b>Save & queue</b> again and click <b>Save an run</b> to run the Build pipeline</p>
+        <p>21. When the Build pipeline has finished. Click on <b>1 published; 1 consumed</b></p>
         <Figure Size="FigureSize.None">
           <FigureImage Source="images/buildpipeline_finished.jpg" />
           <FigureCaption>Build pipeline finished</FigureCaption>
         </Figure>
-        <p>21. In the drop folder you should now have 2 zip Artifacts. 1 for the [YourAppName].Blazor project and 1 for the [YourAppName].HttpApi.Host project  </p>
+        <p>22. In the <em>1 published; 1 consumed</em> folder you should now have 2 zip Artifacts. 1 for the [YourAppName].Blazor project and 1 for the [YourAppName].HttpApi.Host project  </p>
         <br>
         <br>
         <hr>
