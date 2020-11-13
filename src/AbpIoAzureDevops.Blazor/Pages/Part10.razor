@@ -52,20 +52,20 @@ services.AddAntiforgery(options =>
     <Figure Size="FigureSize.None">
       <FigureImage Source="images/unauthorized_client.jpg" />
     </Figure>
-    <p>14. Set the RootUrl value in the AbpIoAzureDevops_Blazor section of the appsettings.json file of the [YourAppName].DbMigrator project to the URL of your Blazor Web App (https://[YourAppName]blazor.azurewebsites.net)</p>
+    <p>14. Set the <em>RootUrl</em> value in the <em>AbpIoAzureDevops_Blazor</em> section of the <em>appsettings.Staging.json</em> file of the <em>[YourAppName].DbMigrator</em> project to the URL of your Blazor Web App (https://[YourAppName]blazor.azurewebsites.net)</p>
     <p>15. Run the [YourAppName].DbMigrator project to apply the settings</p>
     <Figure Size="FigureSize.None">
       <FigureImage Source="images/rooturl_appsettings_dbmigrator_project.jpg" />
     </Figure>
     <p>16. Navigate to the URL of your Blazor Web App and click on the Log in link. The Login page gets loaded</p>
-    <p>17. Fill in Username (admin) and Password (1q2w3E*) and click the Login button. Do you receive the error below?</p>
+    <p>17. Fill in <em>Username (admin)</em> and <em>Password (1q2w3E*)</em> and click the Login button. Do you receive the error below?</p>
     <Figure Size="FigureSize.None">
       <FigureImage Source="images/there_was_an_error_trying_to_log_you_in.jpg" />
     </Figure>
-    <p>18. Set the App:SelfUrl and AuthServer:Authority values to https://[YourAppName]api.azurewebsites.net?</p>
+    <p>18. Open the <em>appsettings.Staging.json</em> file of the <em>[YourAppName].HttpApi.Host</em> project and set the <em>App:SelfUrl</em> and <em>AuthServer:Authority</em> values to <em>https://[YourAppName]api.azurewebsites.net</em></p>
     <p>19. Add, Commit and push the changes to your GitHub repository</p>
-    <p>20. Wait until the new Build and Release have finished. Navigate to the URL of your Blazor Web App. Click Login</p>
-    <p>21. Fill in Username (admin) and Password (1q2w3E*) and click the Login button. Congratulations, You successfully logged in!</p>
+    <p>20. Wait until the Build and Release pipelines have finished. Navigate to the URL of your Blazor Web App. Click <b>Login</b></p>
+    <p>21. Fill in <em></em> and <em>Password (1q2w3E*)</em> and click the <b>Login</b> button. Congratulations, You successfully logged in!</p>
     <p>22. Try to add a new user, logout and login with the newly created user to see if your abp.io application is working correctly</p>
   </Part>
 </PartTemplate>
