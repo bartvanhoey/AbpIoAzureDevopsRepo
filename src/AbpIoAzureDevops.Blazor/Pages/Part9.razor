@@ -2,31 +2,31 @@
 
 <PartTemplate Title="@Constants.Part9.Title" PrevHref="@Constants.Part9.PrevHref" Href="@Constants.Part9.Href" NextHref="@Constants.Part9.NextHref" PageIdentifier="@Constants.Part9.PageIdentifier">
   <Part>
-    <p>1. Go to the Release pipeline in <a href="https://azure.microsoft.com/en-us/services/devops/" target="_blank">Azure DevOps</a> and click Edit</p>
-    <p>2. Click the + Add link and add a New Stage</p>
+    <p>1. Go to the <em>Release</em> pipeline in <a href="https://azure.microsoft.com/en-us/services/devops/" target="_blank">Azure DevOps</a> and click <b>Edit</b></p>
+    <p>2. Click the <b>+ Add</b> link and add a <b>New Stage</b></p>
     <p>3. Select <em>Azure App Service deployment</em> and click the <b>Apply</b> button </p>
-    <p>4. Enter BlazorDeployment in the Stage name input field and close the Stage window</p>
+    <p>4. Enter <em>BlazorDeployment</em> in the <em>Stage name</em> input field and close the <em>Stage</em> window</p>
     <Figure Size="FigureSize.None">
       <FigureImage Source="images/add_stage_in_release_pipeline.jpg" />
       <FigureCaption>Release pipeline overview</FigureCaption>
     </Figure>
-    <p>5. Click on the little red circle with the exclamation in the BlazorDeployment stage </p>
-    <p>6. Select your subscription in the Azure subscription dropdown. </p>
-    <p>7. Click on the Deploy Azure App Service task</p>
-    <p>8. Select [YourAppName].Blazor.zip in the Package or folder input field</p>
+    <p>5. Click on the <b>little red circle with the exclamation mark</b> in the BlazorDeployment stage </p>
+    <p>6. Select your subscription in the <em>Azure subscription</em> dropdown</p>
+    <p>7. Select your Blazor Web App in the <em>App service name</em> dropdown</p>
+    <p>8. Click on the <b>Deploy Azure App Service task</b></p>
+    <p>9. Select <em>[YourAppName].Blazor.zip</em> in the <em>Package or folder</em> input field</p>
     <Figure Size="FigureSize.None">
       <FigureImage Source="images/select_blazor_zip_in_drop_folder.jpg" />
       <FigureCaption>Select [YourAppName].Blazor.zip in drop folder</FigureCaption>
     </Figure>
-    <p>9. Click Save in the top menu and click on the OK button</p>
-    <p>10. Click Create release in the top menu and click on the Create button </p>
-    <p>11. Open a browser when the Release has finished and navigate to the URL of your Web App</p>
+    <p>10. Click <b>Save</b> in the top menu and click on the <b>OK</b> button after</p>
+    <p>11. Click <b>Create release</b> in the top menu and click on the <b>Create</b> button </p>
+    <p>12. Open a browser when the Release has finished and navigate to the URL of your Web App. Open the <em>Developer Tools (F12)</em> of your browser</p>
     <pre><code class="language-html">https://[YourAppName]api.azurewebsites.net</code></pre>
-    <p>12. After a successful Deployment of the Blazor app it is possible you receive the error below</p>
+    <p>13. After the Deployment of the Blazor Web App it is possible you see the error below in the <em>Console</em> window of your browser</p>
     <Figure Size="FigureSize.None">
       <FigureImage Source="images/blazor_deployment_succeeded_cors_issue.jpg" />
     </Figure>
-    <p>13. As you can see the deployment succeeded, but the Web App is having issues. We will fix them in the
-      next part.</p>
+    <p>14. As you can see the deployment succeeded, but the Web App is having issues. We will fix them in the next part</p>
   </Part>
 </PartTemplate>
