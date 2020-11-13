@@ -3,43 +3,40 @@
 <PartTemplate Title="@Constants.Part6.Title" PrevHref="@Constants.Part6.PrevHref" Href="@Constants.Part6.Href" NextHref="@Constants.Part6.NextHref" PageIdentifier="@Constants.Part6.PageIdentifier" >
     <Part>
       <p>1. Sign in into <a href="https://azure.microsoft.com/en-us/services/devops/" target="_blank"> Azure DevOps</a></p>
-      <p>2. Click on [YourAppName]Proj and click on Releases in the Pipelines menu</p>
-      <p>3. Click on the <em>New pipeline</em> button in the <b>No release pipelines found</b> window</p>
+      <p>2. Click on [YourAppName]Proj and click on <b>Releases</b> in the <em>Pipelines</em> menu</p>
+      <p>3. Click on the <b>New pipeline</b> button in the <em>No release pipelines found</em> window</p>
       <p>4. Select <em>Azure App Service deployment</em> and click the <b>Apply</b> button </p>
-      <p>5. Click + Add an artifact in the Pipeline Tab</p>
-      <p>6. Select the Build icon as Source type in the Add an artifact window</p>
-      <p>7. Select Build pipeline in the Source (build pipeline) dropdown and click the Add button</p>
-      <p>8. Click on the Continuous deployment trigger (thunderbolt icon)</p>
-      <p>9. Set the toggle to Enabled in the the Continous deployment trigger window. </p>
-      <p>10. Select Include in the Type dropdown. Select your branch in the Build branch dropdown. Close the window </p>
+      <p>5. Enter <em>[YourAppName]staging</em> in the <em>Stage name</em> field in the <em>Stage</em> winwow. Close window</p>
+      <p>6. Click <b>+ Add an artifact</b> in the <em>Pipeline</em> tab</p>
+      <p>7. Select the <b>Build</b> icon as <em>Source type</em> in the <em>Add an artifact</em> window</p>
+      <p>8. Select Build pipeline in the <em>Source (build pipeline)</em> dropdown and click the <b>Add</b> button</p>
+      <p>9. Click on the <b>Continuous deployment trigger (thunderbolt icon)</b> </p>
+      <p>10. Set the toggle to <b>Enabled</b> in the the <em>Continous deployment trigger</em> window</p>
+      <p>11. Click <b>+ Add</b> in <em>No filters added</em>. Select <b>Include</b> in the <em>Type</em> dropdown. Select your branch in the <em>Build</em> branch dropdown and close the window </p>
       <Figure Size="FigureSize.None">
         <FigureImage Source="images/continuous_deployment_trigger.jpg" />
-        <FigureCaption>Continuous deployment trigger settings</FigureCaption>
       </Figure> 
-      <p>11. Enter ApiDeployment in Stage name input field. Close the Stage window</p>
-      <p>12. Click on the little red circle with the exclamation mark in the Tasks menu</p>
-      <p>13. Select your subscription in the Azure subscription dropdown. </p>
-      <p>14. Click Authorize and enter your credentials in the next screens</p>
-      <p>15. After the Authorisation, select the [YourAppName]API in the App service name dropdown</p>
-      <p>16. Click on the Deploy Azure App Service task</p>
-      <p>17. Select [YourAppName].HttpApi.Host.zip in the Package or folder input field</p>
+      <p>12. Click on <b>the little red circle with the exclamation mark</b> in the <em>Tasks</em> tab menu</p>
+      <p>13. Select your subscription in the <em>Azure subscription</em> dropdown. </p>
+      <p>14. Click <b>Authorize</b> and enter your credentials in the next screens</p>
+      <p>15. After Authorisation, select the <b>[YourAppName]API</b> in the <em>App service name</em> dropdown</p>
+      <p>16. Click on the <b>Deploy Azure App Service</b> task</p>
+      <p>17. Select <b>[YourAppName].HttpApi.Host.zip</b> in the <em>Package or folder</em> input field</p>
      <Figure Size="FigureSize.None">
         <FigureImage Source="images/select_api_zip_in_drop_folder.jpg" />
-        <FigureCaption>Select [YourAppName].HttpApi.Host.zip in drop folder</FigureCaption>
       </Figure>
-      <p>18. Click on the Save icon in the top menu. Click OK</p>
-      <p>19. Click Create release in the top menu. click Create </p>
+      <p>18. Click on the <b>Save</b> icon in the top menu and click <b>OK</b></p>
+      <p>19. Click <b>Create release</b> in the top menu. Click <b>Create</b to create a release></p>
+      <p>20. Click on the <em>Pipeline</em> tab and wait until the Deployment succeeds</p>
        <Figure Size="FigureSize.None">
         <FigureImage Source="images/release_apideployment_succeeded.jpg" />
-        <FigureCaption>Select [YourAppName].HttpApi.Host.zip in drop folder</FigureCaption>
       </Figure>
-      <p>20. Open a browser and navigate to the URL of your Web App</p>
+      <p>21. Open a browser and navigate to the URL of your Web App</p>
       <pre><code class="language-html">https://[YourAppName]api.azurewebsites.net</code></pre>
-      <p>21. It's possible that you receive the error below</p>
+      <p>22. It's possible that you receive the error <em>HTTP Error 500.30 - ANCM In-Process Start Failure</em></p>
       <Figure Size="FigureSize.None">
         <FigureImage Source="images/HTTP_Error_500.30_ANCM_In_Process_Start_Failure.jpg" />
-        <FigureCaption>HTTP Error 500.30 - ANCM In-Process Start Failure</FigureCaption>
       </Figure>
-      <p>22. As you could see did the deployment succeed. But is the Web App still having issues. We will fix them in the next part.</p>
+      <p>23. The Deployment succeeded, but the Web App is still having issues. We will fix them in the next part.</p>
     </Part>
 </PartTemplate>
