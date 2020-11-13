@@ -75,13 +75,13 @@ git push
       <p>23. It's possible that you get another error: <em>This page isn’t working</em></p>
       <p>24. Open the <em>Debug Console</em> in the <em>Kudu</em> window by navigating to <em>[YourAppNameapi].<b>scm</b>.azurewebsites.net</em></p>
       <pre><code class="language-html">https://[YourAppName]api.scm.azurewebsites.net</code></pre>
-      <p>25. Enter the command below in the wwwroot folder of the Debug Console to get a more specific error description</p>
+      <p>25. Enter the command below in the <em>wwwroot</em> folder of the <em>Debug Console</em> to get a more specific error description</p>
       <pre><code class="language-html">dotnet [YourAppName].HttpApi.Host.dll</code></pre>
       <p>26. Probably you receive the error description below</p>
       <Figure Size="FigureSize.None">
         <FigureImage Source="images/client_not_allowed_to_access_server.jpg" />
       </Figure>
-      <p>27. Go to the Azure Portal and select your <em>[YourAppName]server</em></p>
+      <p>27. Go to your <em>Azure Portal</em> and select your <em>[YourAppName]server</em></p>
       <p>28. Click on the <b>Firewalls and virtual networks</b> in the left menu</p>
       <p>29. Select <b>Yes</b> in the <em>Allow Azure services and resources to access this server</em> toggle</p>
       <p>30. Click the <b>Save</b> button. Click <b>OK</b> in the <em>Successfully updated server firewall rules</em> window. Close the window </p>
