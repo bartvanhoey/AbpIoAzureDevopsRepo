@@ -19,41 +19,54 @@
         <p>15. Click on <b>Add Client IP</b> menu item and click on the <b>Save</b> button</p>
         <p>16. Close the Firewall settings window</p>
         <p>17. Click on <b>Show database connection strings</b> and copy the <em>connection string</em></p>
-        <p>19. Add a copy of the <em>appsettings.json</em> files (rename to appsettings.Staging.json) in the <em>[YourAppName].HttpApi.Host</em> and the <em>[YourAppName].DbMigrator</em> project</p>
-        <p>18. Replace the Default connection string in the <em>appsettings.Staging.json</em> files of the <em>[YourAppName].HttpApi.Host</em> and the <em>[YourAppName].DbMigrator</em> project</p>
-        <p>19. Do not forget to replace {your_password} with the correct password</p>
+        <p>19. Copy/paste the <em>appsettings.json</em> file and rename it to <em>appsettings.Staging.json</em> in both the <em>[YourAppName].HttpApi.Host</em> and <em>[YourAppName].DbMigrator</em> project</p>
+        <p>18. Replace the <em>Default connection string</em> in the <em>appsettings.Staging.json</em> files of the <em>[YourAppName].HttpApi.Host</em> and the <em>[YourAppName].DbMigrator</em> project</p>
+        <p>19. Do not forget to replace {your_password} with the correct server password you entered in Azure</p>
         <p>20. Open file <em>DbMigratorHostedService.cs</em> in the [YourAppName].DbMigrator project and update the code </p>   
-
         <pre><code class="javascript">
 <text>
 public async Task StartAsync(CancellationToken cancellationToken)
 {
-        using (var application = AbpApplicationFactory.Create&lt;ConplementAGDbMigratorModule&gt;(options =>
-        {
-        options.UseAutofac();
-        options.Services.AddLogging(c => c.AddSerilog());
+    using (var application = AbpApplicationFactory.Create&lt;ConplementAGDbMigratorModule&gt;(options =>
+    {
+    options.UseAutofac();
+    options.Services.AddLogging(c => c.AddSerilog());
 
-        // Add this line of code to make it possible read from appsettings.Staging.json
-        options.Services.ReplaceConfiguration(BuildConfiguration());
+    // Add this line of code to make it possible read from appsettings.Staging.json
+    options.Services.ReplaceConfiguration(BuildConfiguration());
 
-        }))
-        {
-        application.Initialize();
+    }))
+    {
+    application.Initialize();
 
-        await application
-            .ServiceProvider
-            .GetRequiredService&lt;ConplementAGDbMigrationService&gt;()
-            .MigrateAsync();
+    await application
+        .ServiceProvider
+        .GetRequiredService&lt;ConplementAGDbMigrationService&gt;()
+        .MigrateAsync();
 
-        application.Shutdown();
+    application.Shutdown();
 
-        _hostApplicationLifetime.StopApplication();
-        }
-    }  
-}   
+    _hostApplicationLifetime.StopApplication();
+    }
+}
+
+private static IConfiguration BuildConfiguration()
+{
+    var configurationBuilder = new ConfigurationBuilder().AddJsonFile("appsettings.json");
+
+    // Extra code block to make it possible to read from appsettings.Staging.json
+    var environmentName = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
+    if (environmentName == "Staging")
+    {
+    configurationBuilder.AddJsonFile($"appsettings.{environmentName}.json", true);
+    }
+
+    return configurationBuilder
+        .AddEnvironmentVariables()
+        .Build();
+}
         </text>
         </code></pre>
-
         <p>21. Open the file <em>[YourAppName].DbMigrator.csproj</em>and paste in the code below</p>
         <pre><code class="language-html">
     <text>
@@ -78,7 +91,7 @@ public async Task StartAsync(CancellationToken cancellationToken)
         <p>27. Enter the command below in your <em>[YourAppName].HttpApi.Host</em> project to check your API is working</p>
         <pre><code class="language-html">dotnet run --no-launch-profile</code></pre>
         <p>28. Stop the <em>[YourAppName].HttpApi.Host</em> by entering <em>CTRL+C</em></p>
-        <p>29. Open a command prompt in the root folder of your project and add, commit and push all your changes to the GitHub repository</p>
+        <p>29. Open a command prompt in the root folder of your project and add, commit and push all your changes to your GitHub repository</p>
        <pre><code class="language-html">
 git add .
 git commit -m initialcommit
