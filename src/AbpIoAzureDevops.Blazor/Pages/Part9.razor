@@ -8,7 +8,6 @@
     <p>4. Enter <em>BlazorDeployment</em> in the <em>Stage name</em> input field and close the <em>Stage</em> window</p>
     <Figure Size="FigureSize.None">
       <FigureImage Source="images/add_stage_in_release_pipeline.jpg" />
-      <FigureCaption>Release pipeline overview</FigureCaption>
     </Figure>
     <p>5. Click on the <b>little red circle with the exclamation mark</b> in the BlazorDeployment stage </p>
     <p>6. Select your subscription in the <em>Azure subscription</em> dropdown</p>
@@ -17,16 +16,20 @@
     <p>9. Select <em>[YourAppName].Blazor.zip</em> in the <em>Package or folder</em> input field</p>
     <Figure Size="FigureSize.None">
       <FigureImage Source="images/select_blazor_zip_in_drop_folder.jpg" />
-      <FigureCaption>Select [YourAppName].Blazor.zip in drop folder</FigureCaption>
     </Figure>
-    <p>10. Click <b>Save</b> in the top menu and click on the <b>OK</b> button after</p>
-    <p>11. Click <b>Create release</b> in the top menu and click on the <b>Create</b> button </p>
-    <p>12. Open a browser when the Release has finished and navigate to the URL of your Web App. Open the <em>Developer Tools (F12)</em> of your browser</p>
+    <p>10. Enter <em>**/appsettings.json</em> in the <em>JSON variable substitution</em> input field</p>
+    <p>11. Click on the <b>Variables</b> tab and add the variables <em>AuthServer.Authority</em> and <em>RemoteServices.Default.BaseUrl</em> as in the image below</p>
+    <Figure Size="FigureSize.None">
+      <FigureImage Source="replace_values_in_appsettings_file_in_blazor_deployment.jpg" />
+    </Figure>
+    <p>12. Click <b>Save</b> in the top menu and click on the <b>OK</b> button after</p>
+    <p>13. Click <b>Create release</b> in the top menu and click on the <b>Create</b> button </p>
+    <p>14. Open a browser when the Release has finished and navigate to the URL of your Web App. Open the <em>Developer Tools (F12)</em> of your browser</p>
     <pre><code class="language-html">https://[YourAppName]api.azurewebsites.net</code></pre>
-    <p>13. After the Deployment of the Blazor Web App it is possible you see the error below in the <em>Console</em> window of your browser</p>
+    <p>15. After the Deployment of the Blazor Web App it is possible you see the error below in the <em>Console</em> window of your browser</p>
     <Figure Size="FigureSize.None">
       <FigureImage Source="images/blazor_deployment_succeeded_cors_issue.jpg" />
     </Figure>
-    <p>14. As you can see the deployment succeeded, but the Web App is having issues. We will fix them in the next part</p>
+    <p>16. As you can see the deployment succeeded, but the Web App is having issues. We will fix them in the next part</p>
   </Part>
 </PartTemplate>

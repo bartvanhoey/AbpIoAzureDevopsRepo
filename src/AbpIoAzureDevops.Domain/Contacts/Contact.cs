@@ -1,0 +1,4 @@
+namespace AbpIoAzureDevops.Domain.Contacts
+{
+
+}
