@@ -34,7 +34,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Volo.Abp.Autofac" Version="3.2.1" />
+    <PackageReference Include="Volo.Abp.Autofac" Version="3.3.1" />
     <ProjectReference Include="..\AbpIoAzureDevops.Application.Contracts\AbpIoAzureDevops.Application.Contracts.csproj" />
     <ProjectReference Include="..\AbpIoAzureDevops.EntityFrameworkCore.DbMigrations\AbpIoAzureDevops.EntityFrameworkCore.DbMigrations.csproj" />
   </ItemGroup>

@@ -12,7 +12,29 @@
             "url": "https://localhost:44307"
         },
         {
-            "name": "API",
+            "name": "APIdevelopement",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build",
+            // If you have changed target frameworks, make sure to update the program path.
+            "program": "${workspaceFolder}/src/AbpIoAzureDevops.HttpApi.Host/bin/Debug/netcoreapp3.1/AbpIoAzureDevops.HttpApi.Host.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/src/AbpIoAzureDevops.HttpApi.Host",
+            "stopAtEntry": false,
+            // Enable launching a web browser when ASP.NET Core starts. For more information: https://aka.ms/VSCode-CS-LaunchJson-WebBrowser
+            "serverReadyAction": {
+                "action": "openExternally",
+                "pattern": "\\bNow listening on:\\s+(https?://\\S+)"
+            },
+            "env": {
+                "ASPNETCORE_ENVIRONMENT": "Development"
+            },
+            "sourceFileMap": {
+                "/Views": "${workspaceFolder}/Views"
+            }
+        },
+        {
+            "name": "APIstaging",
             "type": "coreclr",
             "request": "launch",
             "preLaunchTask": "build",
@@ -78,7 +100,7 @@
         {
             "name": "Compound",
             "configurations": [
-                "API",
+                "APIdevelopement",
                 "Blazor"
             ]
         }
