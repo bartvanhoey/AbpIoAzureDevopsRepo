@@ -2,7 +2,7 @@
 
 ## Continuous Deployment of an ABP Framework application with Azure DevOps
 
-A step-by-step tutorial on how to setup Continuous Deployment in Azure DevOps of an ABP Framework application
+A step-by-step tutorial on how to set up Continuous Deployment in Azure DevOps of an ABP Framework application
 
 [![Build Status](https://dev.azure.com/AbpIoAzureDevopsOrg/AbpIoAzureDevopsProj/_apis/build/status/Build%20pipeline?branchName=gh-pages)](https://dev.azure.com/AbpIoAzureDevopsOrg/AbpIoAzureDevopsProj/_build/latest?definitionId=1&branchName=gh-pages)
 
@@ -12,7 +12,7 @@ A step-by-step tutorial on how to setup Continuous Deployment in Azure DevOps of
 
 [Part 3: Create an SQL Database on Azure and change connection string in appsettings.json files](https://abpioazuredevopsblazor.azurewebsites.net/part3)
 
-[Part 4: Setup the Build pipeline in AzureDevops and publish the Build Artifacts](https://abpioazuredevopsblazor.azurewebsites.net/part4)
+[Part 4: Set up the Build pipeline in AzureDevops and publish the Build Artifacts](https://abpioazuredevopsblazor.azurewebsites.net/part4)
 
 [Part 5: Create a Web App in the Azure Portal to deploy [YourAppName].HttpApi.Host project](https://abpioazuredevopsblazor.azurewebsites.net/part5)
 

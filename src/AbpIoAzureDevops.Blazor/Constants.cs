@@ -31,7 +31,7 @@ namespace AbpIoAzureDevops.Blazor
 
     public static class Part4
     {
-      public const string Title = "Part 4: Setup the Build pipeline in AzureDevops and publish the Build Artifacts";
+      public const string Title = "Part 4: Set up the Build pipeline in AzureDevops and publish the Build Artifacts";
       public const string Href = "part4";
       public const string PageIdentifier = "4";
       public const string PrevHref = "part3";
