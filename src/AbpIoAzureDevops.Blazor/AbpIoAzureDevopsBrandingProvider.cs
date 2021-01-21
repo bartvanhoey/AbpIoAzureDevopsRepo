@@ -1,9 +1,11 @@
-﻿using Volo.Abp.Ui.Branding;
+﻿using Volo.Abp.DependencyInjection;
+using Volo.Abp.Ui.Branding;
 
 namespace AbpIoAzureDevops.Blazor
 {
-    public class AbpIoAzureDevopsBrandingProvider : DefaultBrandingProvider
-    {
-        public override string AppName => "AbpIoAzureDevops";
-    }
+  [Dependency(ReplaceServices = true)]
+  public class AbpIoAzureDevopsBrandingProvider : DefaultBrandingProvider
+  {
+    public override string AppName => "ABP Framework to Azure";
+  }
 }

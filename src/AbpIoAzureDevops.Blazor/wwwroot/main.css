@@ -16,3 +16,11 @@
     right: 0.75rem;
     top: 0.5rem;
 }
+
+.alert-override {
+    background-color: #c3d3df !important;
+    font-size: 12px;
+    color:white !important;
+}
+
+
