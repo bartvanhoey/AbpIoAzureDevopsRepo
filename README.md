@@ -1,4 +1,8 @@
-# Continuous Deployment of an ABP Framework application in AzureDevops
+# ABP Framework to Azure!
+
+## Continuous Deployment of an ABP Framework application with Azure DevOps
+
+A step-by-step tutorial on how to setup Continuous Deployment in Azure DevOps of an ABP Framework application
 
 [![Build Status](https://dev.azure.com/AbpIoAzureDevopsOrg/AbpIoAzureDevopsProj/_apis/build/status/Build%20pipeline?branchName=gh-pages)](https://dev.azure.com/AbpIoAzureDevopsOrg/AbpIoAzureDevopsProj/_build/latest?definitionId=1&branchName=gh-pages)
 
