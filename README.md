@@ -1,10 +1,10 @@
-# Setup Continuous Deployment of an abp.io application in AzureDevops
+# Setup Continuous Deployment of an ABP Framework application in AzureDevops
 
 [![Build Status](https://dev.azure.com/AbpIoAzureDevopsOrg/AbpIoAzureDevopsProj/_apis/build/status/Build%20pipeline?branchName=gh-pages)](https://dev.azure.com/AbpIoAzureDevopsOrg/AbpIoAzureDevopsProj/_build/latest?definitionId=1&branchName=gh-pages)
 
 ## [Part 1: Create a new GitHub repository](https://abpioazuredevopsblazor.azurewebsites.net/part1)
 
-## [Part 2: Create a new abp.io application](https://abpioazuredevopsblazor.azurewebsites.net/part2)
+## [Part 2: Create a new ABP Framework application](https://abpioazuredevopsblazor.azurewebsites.net/part2)
 
 ## [Part 3: Create an SQL Database on Azure and change connection string in appsettings.json files](https://abpioazuredevopsblazor.azurewebsites.net/part3)
 

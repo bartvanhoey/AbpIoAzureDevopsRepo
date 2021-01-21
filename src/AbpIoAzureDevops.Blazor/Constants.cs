@@ -13,7 +13,7 @@ namespace AbpIoAzureDevops.Blazor
 
     public static class Part2
     {
-      public const string Title = "Part 2: Create a new abp.io application";
+      public const string Title = "Part 2: Create a new ABP Framework application";
       public const string Href = "part2";
       public const string PageIdentifier = "2";
       public const string PrevHref = "part1";
