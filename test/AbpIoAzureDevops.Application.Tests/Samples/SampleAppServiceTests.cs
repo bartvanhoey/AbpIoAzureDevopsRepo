@@ -5,10 +5,7 @@ using Xunit;
 
 namespace AbpIoAzureDevops.Samples
 {
-    /* This is just an example test class.
-     * Normally, you don't test code of the modules you are using
-     * (like IIdentityUserAppService here).
-     * Only test your own application services.
+    /* This is just an example test class. 
      */
     public class SampleAppServiceTests : AbpIoAzureDevopsApplicationTestBase
     {
